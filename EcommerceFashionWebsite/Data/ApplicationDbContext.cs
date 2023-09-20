@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using EcommerceFashionWebsite.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceFashionWebsite.Data
@@ -9,5 +10,7 @@ namespace EcommerceFashionWebsite.Data
             : base(options)
         {
         }
+
+        public DbSet<UserModel> UserModel { get; set; } 
     }
 }
