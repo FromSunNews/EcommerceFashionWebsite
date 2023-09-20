@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="ht-right">
-                    <a href="#" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    <a href="~/login" class="login-panel"><i class="fa fa-user"></i>Login</a>
                     <div class="lan-selector">
                         <select class="language_drop" name="countries" id="countries" style="width:300px;">
                             <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt"
@@ -55,10 +55,10 @@
                         </select>
                     </div>
                     <div class="top-social">
-                        <a href="#"><i class="ti-facebook"></i></a>
-                        <a href="#"><i class="ti-twitter-alt"></i></a>
-                        <a href="#"><i class="ti-linkedin"></i></a>
-                        <a href="#"><i class="ti-pinterest"></i></a>
+                        <a href="https://www.facebook.com/"><i class="ti-facebook"></i></a>
+                        <a href="https://www.twitter.com"><i class="ti-twitter-alt"></i></a>
+                        <a href="https://www.instagram.com"><i class="ti-linkedin"></i></a>
+                        <a href="https://www.pinterest.com"><i class="ti-pinterest"></i></a>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                 <div class="row">
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
-                            <a href="./index.html">
+                            <a href="~/">
                                 <img src="img/logo.png" alt="">
                             </a>
                         </div>
@@ -91,7 +91,7 @@
                                 </a>
                             </li>
                             <li class="cart-icon">
-                                <a href="#">
+                                <a href="https://localhost:7057/shopping_cart">
                                     <i class="icon_bag_alt"></i>
                                     <span>3</span>
                                 </a>
@@ -131,7 +131,7 @@
                                         <h5>$120.00</h5>
                                     </div>
                                     <div class="select-button">
-                                        <a href="#" class="primary-btn view-card">VIEW CARD</a>
+                                        <a href="https://localhost:7057/shopping_cart" class="primary-btn view-card">VIEW CARD</a>
                                         <a href="#" class="primary-btn checkout-btn">CHECK OUT</a>
                                     </div>
                                 </div>
@@ -162,27 +162,27 @@
                 </div>
                 <nav class="nav-menu mobile-menu">
                     <ul>
-                        <li class="active"><a href="./index.html">Home</a></li>
-                        <li><a href="./shop.html">Shop</a></li>
-                        <li>
+                        <li  id ="home"><a href="~/">Home</a></li>
+                        <li id="shop"><a href="~/shop">Shop</a></li>
+                        <li id="collection">
                             <a href="#">Collection</a>
                             <ul class="dropdown">
-                                <li><a href="#">Men's</a></li>
-                                <li><a href="#">Women's</a></li>
-                                <li><a href="#">Kid's</a></li>
+                                <li><a href="#">Sinh</a></li>
+                                <li><a href="#">iu</a></li>
+                                <li><a href="#">Phuong</a></li>
                             </ul>
                         </li>
-                        <li><a href="./blog.html">Blog</a></li>
-                        <li><a href="./contact.html">Contact</a></li>
-                        <li>
+                        <li id="blog"><a href="~/blog">Blog</a></li>
+                        <li id="contact"><a href="~/contact">Contact</a></li>
+                        <li id="pages">
                             <a href="#">Pages</a>
                             <ul class="dropdown">
-                                <li><a href="./blog-details.html">Blog Details</a></li>
-                                <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                <li><a href="./check-out.html">Checkout</a></li>
-                                <li><a href="./faq.html">Faq</a></li>
-                                <li><a href="./register.html">Register</a></li>
-                                <li><a href="./login.html">Login</a></li>
+                                <li id="blog-details"><a href="~/blog-details">Blog Details</a></li>
+                                <li id="shopping-cart"><a href="~/shopping-cart">Shopping Cart</a></li>
+                                <li id="checkout"><a href="~/check-out">Checkout</a></li>
+                                <li id="fag"><a href="~/faq">Faq</a></li>
+                                <li id="register"><a href="~/register">Register</a></li>
+                                <li id="login"><a href="~/login">Login</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -260,10 +260,10 @@
                             <li>Email: hello.colorlib@gmail.com</li>
                         </ul>
                         <div class="footer-social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a href="https://www.facebook.com/"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                            <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.pinterest.com/"><i class="fa fa-pinterest"></i></a>
                         </div>
                     </div>
                 </div>
@@ -336,6 +336,18 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        var currentUrl = window.location.pathname.replace(/^\//, '');
+        console.log("currentUrl", currentUrl);
+        var element;
+        if (currentUrl == "")
+            element = document.getElementById("home");
+        else
+            element = document.getElementById(currentUrl);
+
+        console.log("element", element);
+        element.classList.add("active")
+    </script>
     @await Component.InvokeAsync("Notyf")
     @await RenderSectionAsync("Scripts", required: false)
 </body>
