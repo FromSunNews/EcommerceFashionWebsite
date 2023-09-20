@@ -1,20 +1,23 @@
 ﻿        @{
     ViewData["Title"] = "Login";
 }
+@model UserModel
 <div class="register-login-section spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">
                 <div class="login-form">
                     <h2>Login</h2>
-                    <form action="#">
+                    <form method="post">
                         <div class="group-input">
-                            <label for="username">Username or email address *</label>
-                            <input type="text" id="username">
+                            <label asp-for="Username">Username or email address</label>
+                            <input asp-for="Username" type="text" id="username">
+                            <span asp-validation-for="Username" class="text-danger"></span>
+
                         </div>
                         <div class="group-input">
-                            <label for="pass">Password *</label>
-                            <input type="text" id="pass">
+                            <label asp-for="Password">Password</label>
+                            <input asp-for="Password" type="password" id="pass">
                         </div>
                         <div class="group-input gi-check">
                             <div class="gi-more">
@@ -29,7 +32,7 @@
                         <button type="submit" class="site-btn login-btn">Sign In</button>
                     </form>
                     <div class="switch-login">
-                        <a href="./register.html" class="or-login">Or Create An Account</a>
+                        <a href="~/register" class="or-login">Or Create An Account</a>
                     </div>
                 </div>
             </div>

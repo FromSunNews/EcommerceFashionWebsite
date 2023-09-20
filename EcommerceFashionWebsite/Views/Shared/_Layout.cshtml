@@ -45,14 +45,24 @@
                     </div>
                 </div>
                 <div class="ht-right">
-                    <a href="~/login" class="login-panel"><i class="fa fa-user"></i>Login</a>
+                    <a href="~/login" class="login-panel"><i class="fa fa-user"></i>@_lang.Getkey("login")</a>
                     <div class="lan-selector">
-                        <select class="language_drop" name="countries" id="countries" style="width:300px;">
-                            <option value='yt' data-image="img/flag-1.jpg" data-imagecss="flag yt"
-                                    data-title="English">English</option>
-                            <option value='yu' data-image="img/flag-2.jpg" data-imagecss="flag yu"
-                                    data-title="Bangladesh">German </option>
-                        </select>
+                        
+                        <div class="dropdown mb-3">
+                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"> @_lang.Getkey("language") </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="en-US" class="dropdown-item">
+                                        <i class="flag-icon flag-icon-gb"></i> English
+                                    </a>
+                                </li>
+                                <li>
+                                    <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="vi-VN" class="dropdown-item">
+                                        <i class="flag-icon flag-icon-gb"></i> Tiếng Việt
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="top-social">
                         <a href="https://www.facebook.com/"><i class="ti-facebook"></i></a>
@@ -182,7 +192,7 @@
                                 <li id="checkout"><a href="~/check-out">Checkout</a></li>
                                 <li id="fag"><a href="~/faq">Faq</a></li>
                                 <li id="register"><a href="~/register">Register</a></li>
-                                <li id="login"><a href="~/login">Login</a></li>
+                                <li id="login"><a href="~/login">@_lang.Getkey("login")</a></li>
                             </ul>
                         </li>
                     </ul>
