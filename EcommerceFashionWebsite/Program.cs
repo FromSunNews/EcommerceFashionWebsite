@@ -1,4 +1,4 @@
-using AspNetCoreHero.ToastNotification;
+﻿using AspNetCoreHero.ToastNotification;
 using EcommerceFashionWebsite.Data;
 using EcommerceFashionWebsite.Services;
 using Microsoft.AspNetCore.Identity;
@@ -70,7 +70,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{area=User}/{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();

@@ -1,0 +1,13 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "/Areas/Identity/Pages/_Layout.cshtml";
+}
+<h3 class="mt-5 ">Confirm email</h3>
+<hr />
+<partial name="_StatusMessage" model="Model.StatusMessage" />
+<a id="confirm-link" asp-page="./Login" class="w-100 btn btn-lg btn-primary">Go To Login</a>
+
+
+

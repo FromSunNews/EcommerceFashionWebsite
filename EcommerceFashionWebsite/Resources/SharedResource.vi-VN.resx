@@ -123,6 +123,12 @@
   <data name="login" xml:space="preserve">
     <value>Đăng Nhập</value>
   </data>
+  <data name="logout" xml:space="preserve">
+    <value>Đăng Xuất</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>Đăng Ký</value>
+  </data>
   <data name="welcome" xml:space="preserve">
     <value>Xin Chào</value>
   </data>
