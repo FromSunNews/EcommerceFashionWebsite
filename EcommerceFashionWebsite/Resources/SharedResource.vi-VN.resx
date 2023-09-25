@@ -117,13 +117,487 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aboutus" xml:space="preserve">
+    <value>Về chúng tôi</value>
+  </data>
+  <data name="absolue" xml:space="preserve">
+    <value>Bộ sưu tập tuyệt đối. Nhóm Lancome là một…</value>
+  </data>
+  <data name="accessories" xml:space="preserve">
+    <value>Phụ kiện</value>
+  </data>
+  <data name="accessories_shoes" xml:space="preserve">
+    <value>Phụ kiện/Giày</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="age" xml:space="preserve">
+    <value>Tuổi</value>
+  </data>
+  <data name="all_categories" xml:space="preserve">
+    <value>Tất cả </value>
+  </data>
+  <data name="all_departments" xml:space="preserve">
+    <value>Tất cả </value>
+  </data>
+  <data name="apply" xml:space="preserve">
+    <value>Đồng ý</value>
+  </data>
+  <data name="backpack" xml:space="preserve">
+    <value>Balo</value>
+  </data>
+  <data name="beauty" xml:space="preserve">
+    <value>Sắc đẹp</value>
+  </data>
+  <data name="biiling" xml:space="preserve">
+    <value>Chi tiết thanh toán</value>
+  </data>
+  <data name="black" xml:space="preserve">
+    <value>Đen</value>
+  </data>
+  <data name="black_friday" xml:space="preserve">
+    <value>Thứ Sáu Đen</value>
+  </data>
+  <data name="blog_details" xml:space="preserve">
+    <value>Chi tiết Trang</value>
+  </data>
+  <data name="blue" xml:space="preserve">
+    <value>Xanh dương</value>
+  </data>
+  <data name="brand" xml:space="preserve">
+    <value>Thương hiệu</value>
+  </data>
+  <data name="brand_fashion" xml:space="preserve">
+    <value>Thương hiệu thời trang</value>
+  </data>
+  <data name="brand_outdoor" xml:space="preserve">
+    <value>Thương hiệu ngoài trời</value>
+  </data>
+  <data name="categories" xml:space="preserve">
+    <value>Thể loại</value>
+  </data>
+  <data name="checkout" xml:space="preserve">
+    <value>Đăng Xuất</value>
+  </data>
+  <data name="click_here_login" xml:space="preserve">
+    <value>Nhấn vào đây để đăng nhập</value>
+  </data>
+  <data name="clothings" xml:space="preserve">
+    <value>Quần áo</value>
+  </data>
+  <data name="coat" xml:space="preserve">
+    <value>Áo choàng</value>
+  </data>
+  <data name="collection" xml:space="preserve">
+    <value>Bộ Sưu Tập</value>
+  </data>
+  <data name="color" xml:space="preserve">
+    <value>Màu</value>
+  </data>
+  <data name="comment_page" xml:space="preserve">
+    <value>Một số trong đó là hữu ích. Đừng để nỗi đau của bánh lái khi bị khiển trách trong niềm vui chỉ là một sợi tóc và một nỗi đau lớn nào đó. Để đến từng chi tiết nhỏ nhất, tôi yêu con người chúng ta</value>
+  </data>
+  <data name="company_name" xml:space="preserve">
+    <value>Tên công ty</value>
+  </data>
+  <data name="confirm_password" xml:space="preserve">
+    <value>Nhập lại mật khẩu</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>Liên Hệ</value>
+  </data>
+  <data name="contacts_us" xml:space="preserve">
+    <value>Liên hệ chúng tôi</value>
+  </data>
+  <data name="content_footer" xml:space="preserve">
+    <value>Nội dung của những bài báo sẽ giúp ích được cho bạn</value>
+  </data>
+  <data name="continue_shopping" xml:space="preserve">
+    <value>Tiếp tục mua sắm</value>
+  </data>
+  <data name="contrary" xml:space="preserve">
+    <value>Trái ngược với niềm tin phổ biến, Lorem Ipsum chỉ đơn giản là văn bản ngẫu nhiên. Nó có nguồn gốc từ một tác phẩm văn học Latin cổ điển từ năm 45 trước Công nguyên, maki năm tuổi.</value>
+  </data>
+  <data name="coutry" xml:space="preserve">
+    <value>Quốc gia</value>
+  </data>
+  <data name="create_account" xml:space="preserve">
+    <value>Tạo tài khoản?</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>Ngày</value>
+  </data>
+  <data name="deal_of" xml:space="preserve">
+    <value>Giao dịch trong tuần</value>
+  </data>
+  <data name="default_sorting" xml:space="preserve">
+    <value>Mặc định phân loại</value>
+  </data>
+  <data name="discount_code" xml:space="preserve">
+    <value>Mã giảm giá</value>
+  </data>
+  <data name="discover_more" xml:space="preserve">
+    <value>Khám phá nhiều hơn</value>
+  </data>
+  <data name="dresses" xml:space="preserve">
+    <value>Váy đầm</value>
+  </data>
+  <data name="email_address" xml:space="preserve">
+    <value>Địa chỉ email</value>
+  </data>
+  <data name="enter_code" xml:space="preserve">
+    <value>Nhập mã của bạn</value>
+  </data>
+  <data name="enter_coupon_code" xml:space="preserve">
+    <value>Nhập mã khuyến mãi</value>
+  </data>
+  <data name="enter_email" xml:space="preserve">
+    <value>Nhập thư của bạn</value>
+  </data>
+  <data name="fashion" xml:space="preserve">
+    <value>Thời trang</value>
+  </data>
+  <data name="first_name" xml:space="preserve">
+    <value>Họ</value>
+  </data>
+  <data name="forger_password" xml:space="preserve">
+    <value>Quên mật khẩu</value>
+  </data>
+  <data name="freeship" xml:space="preserve">
+    <value>Miễn phí giao hàng</value>
+  </data>
+  <data name="fromtheblog" xml:space="preserve">
+    <value>Từ Blog</value>
+  </data>
+  <data name="gender" xml:space="preserve">
+    <value>Giới tính</value>
+  </data>
+  <data name="get_email" xml:space="preserve">
+    <value>Nhận thông tin cập nhật qua E-mail về cửa hàng mới nhất của chúng tôi và các ưu đãi đặc biệt.</value>
+  </data>
+  <data name="green" xml:space="preserve">
+    <value>Xanh lá</value>
+  </data>
+  <data name="handbag" xml:space="preserve">
+    <value>Túi xách tay</value>
+  </data>
+  <data name="happy" xml:space="preserve">
+    <value>Chúc mừng năm mới! Tôi biết tôi đến bài đăng này hơi muộn</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Trang Chủ</value>
+  </data>
+  <data name="hours" xml:space="preserve">
+    <value>Giờ</value>
+  </data>
+  <data name="image" xml:space="preserve">
+    <value>Hình ảnh </value>
+  </data>
+  <data name="info" xml:space="preserve">
+    <value>Thông tin</value>
+  </data>
+  <data name="join_our" xml:space="preserve">
+    <value>Tham gia bản tin của chúng tôi ngay bây giờ</value>
+  </data>
+  <data name="kid" xml:space="preserve">
+    <value>Trẻ em</value>
+  </data>
+  <data name="kids_clothing" xml:space="preserve">
+    <value>Quần áo trẻ em</value>
+  </data>
   <data name="language" xml:space="preserve">
     <value>Tiếng Việt</value>
+  </data>
+  <data name="last_name" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="last_week" xml:space="preserve">
+    <value>Tuần trước tôi có chuyến công tác đầu tiên trong năm tới Thung lũng Sonoma</value>
+  </data>
+  <data name="leave_a_comment" xml:space="preserve">
+    <value>Để lại một bình luận</value>
+  </data>
+  <data name="loading_more" xml:space="preserve">
+    <value>Xem thêm</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>Đăng Nhập</value>
   </data>
+  <data name="lorem" xml:space="preserve">
+    <value>Điều quan trọng là phải tự chăm sóc nỗi đau, sau đó là sự trưởng thành của bệnh nhân, nhưng đồng thời cũng sẽ có rất nhiều công việc và nỗi đau. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó.</value>
+  </data>
+  <data name="luxury_brands" xml:space="preserve">
+    <value>Thương hiệu cao cấp</value>
+  </data>
+  <data name="may" xml:space="preserve">
+    <value>Tháng 5</value>
+  </data>
+  <data name="men" xml:space="preserve">
+    <value>Nam</value>
+  </data>
+  <data name="mens_clothing" xml:space="preserve">
+    <value>Quần áo nam</value>
+  </data>
+  <data name="men_hat" xml:space="preserve">
+    <value>Nón nam</value>
+  </data>
+  <data name="message" xml:space="preserve">
+    <value>Tin nhắn</value>
+  </data>
+  <data name="mins" xml:space="preserve">
+    <value>Phút</value>
+  </data>
+  <data name="model" xml:space="preserve">
+    <value>Kiểu mẫu</value>
+  </data>
+  <data name="myaccount" xml:space="preserve">
+    <value>Tài khoản của bạn</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="next_post" xml:space="preserve">
+    <value>Bài sau</value>
+  </data>
+  <data name="or_create" xml:space="preserve">
+    <value>Hoặc đăng kí tài khoản</value>
+  </data>
+  <data name="or_login" xml:space="preserve">
+    <value>Hoặc đăng nhập</value>
+  </data>
+  <data name="our_staff" xml:space="preserve">
+    <value>Nhân viên của chúng tôi sẽ gọi lại sau và giải đáp thắc mắc của bạn.</value>
+  </data>
+  <data name="pages" xml:space="preserve">
+    <value>Trang</value>
+  </data>
+  <data name="page_details" xml:space="preserve">
+    <value>Cơn đau có thể rất lớn và sự béo phì sẽ theo sau, nhưng đồng thời cũng có một số nỗi đau và sự chuyển dạ lớn. Việc chăm sóc gia đình của bạn là rất quan trọng, kéo theo đó là số lượng người sẽ tăng lên, nhưng đồng thời chúng sẽ diễn ra với rất nhiều công việc và nỗi đau. Để đi đến chi tiết nhỏ nhất, không ai nên thực hiện bất kỳ loại công việc nào trừ khi anh ta thu được lợi ích nào đó từ nó. Nghi ngờ hoặc cảm thấy đau đớn khi bị khiển trách trong niềm vui.</value>
+  </data>
+  <data name="page_details1" xml:space="preserve">
+    <value>“Công nghệ chẳng là gì cả. Điều quan trọng là bạn có niềm tin vào con người, rằng họ về cơ bản là tốt và thông minh, và nếu bạn cho họ công cụ, họ sẽ làm được những điều tuyệt vời với họ.” - CÔNG VIỆC STEVEN</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="payment" xml:space="preserve">
+    <value>Thanh toán Payment</value>
+  </data>
+  <data name="paypal" xml:space="preserve">
+    <value>Thanh toán Paypal</value>
+  </data>
+  <data name="personality" xml:space="preserve">
+    <value>Đặc điểm tính cách tạo nên...</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="picnic" xml:space="preserve">
+    <value>Cắm trại</value>
+  </data>
+  <data name="place_order" xml:space="preserve">
+    <value>ĐẶT HÀNG</value>
+  </data>
+  <data name="posdcade" xml:space="preserve">
+    <value>Mã bưu điện/ZIP (tùy chọn)</value>
+  </data>
+  <data name="price" xml:space="preserve">
+    <value>Giá</value>
+  </data>
+  <data name="proceed" xml:space="preserve">
+    <value>Tiến hành thanh toán</value>
+  </data>
+  <data name="product" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
+  <data name="product_name" xml:space="preserve">
+    <value>Tên sản phẩm</value>
+  </data>
+  <data name="product_tags" xml:space="preserve">
+    <value>Thẻ sản phẩm</value>
+  </data>
+  <data name="quantity" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="quick_view" xml:space="preserve">
+    <value>Xem chi tiết</value>
+  </data>
+  <data name="recent_post" xml:space="preserve">
+    <value>Bài đăng gần đây</value>
+  </data>
+  <data name="red" xml:space="preserve">
+    <value>Đỏ</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>Đăng Ký</value>
+  </data>
+  <data name="sale" xml:space="preserve">
+    <value>Giảm giá</value>
+  </data>
+  <data name="sale50" xml:space="preserve">
+    <value>Giảm giá 50%</value>
+  </data>
+  <data name="sale_bag" xml:space="preserve">
+    <value>Đây là Túi cắm trại được bán chạy nhất trong thời gian qua </value>
+  </data>
+  <data name="save_password" xml:space="preserve">
+    <value>Lưu mật khẩu</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="second" xml:space="preserve">
+    <value>Giây</value>
+  </data>
+  <data name="select_age" xml:space="preserve">
+    <value>Xác nhậnn tuổi</value>
+  </data>
+  <data name="select_gender" xml:space="preserve">
+    <value>Xác nhận giới tính</value>
+  </data>
+  <data name="send_message" xml:space="preserve">
+    <value>Gửi tin nhắn</value>
+  </data>
+  <data name="serivius" xml:space="preserve">
+    <value>Người</value>
+  </data>
+  <data name="share" xml:space="preserve">
+    <value>Chia sẻ</value>
+  </data>
+  <data name="shoes" xml:space="preserve">
+    <value>Giày</value>
+  </data>
+  <data name="shop" xml:space="preserve">
+    <value>Cửa Hàng</value>
+  </data>
+  <data name="shopping_cart" xml:space="preserve">
+    <value>Giỏ Hàng</value>
+  </data>
+  <data name="shop_now" xml:space="preserve">
+    <value>Cửa Hàng</value>
+  </data>
+  <data name="show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="show01_09" xml:space="preserve">
+    <value>Hiện 01- 09 Trong 36 Sản Phẩm</value>
+  </data>
+  <data name="sign_in" xml:space="preserve">
+    <value>Đăng nhập</value>
+  </data>
+  <data name="street" xml:space="preserve">
+    <value>Địa chỉ đường phố</value>
+  </data>
+  <data name="subscribe" xml:space="preserve">
+    <value>Đăng kí</value>
+  </data>
+  <data name="subtotal" xml:space="preserve">
+    <value>Tổng </value>
+  </data>
+  <data name="the_personality" xml:space="preserve">
+    <value>Đặc điểm tính cách khiến mọi người hạnh phúc hơn</value>
+  </data>
+  <data name="this_was" xml:space="preserve">
+    <value>Đây là một trong những ngày đầu tiên của chúng tôi ở Hawaii vào tuần trước.</value>
+  </data>
+  <data name="title_fag" xml:space="preserve">
+    <value>Có thứ gì tôi nên mang theo không?</value>
+  </data>
+  <data name="title_fag1" xml:space="preserve">
+    <value>Tôi có thể tìm báo cáo nghiên cứu thị trường ở đâu?</value>
+  </data>
+  <data name="title_fag2" xml:space="preserve">
+    <value>Tôi có thể tìm thấy tờ Wall Street Journal ở đâu?</value>
+  </data>
+  <data name="title_footer" xml:space="preserve">
+    <value>Phong cách đường phố đẹp nhất từ Tuần lễ thời trang Luân Đôn</value>
+  </data>
+  <data name="title_footer1" xml:space="preserve">
+    <value>Hướng dẫn cơ bản về giày Thu/Đông 2019 của Vogue</value>
+  </data>
+  <data name="title_footer2" xml:space="preserve">
+    <value>Cách làm sáng tủ quần áo của bạn bằng một chút vôi</value>
+  </data>
+  <data name="title_footer3" xml:space="preserve">
+    <value>Cho những đơn hàng trên 2 triệu</value>
+  </data>
+  <data name="title_footer4" xml:space="preserve">
+    <value>Giao hàng đúng hạn</value>
+  </data>
+  <data name="title_footer5" xml:space="preserve">
+    <value>Nếu tốt có vấn đề</value>
+  </data>
+  <data name="title_footer6" xml:space="preserve">
+    <value>Thanh toán an toàn</value>
+  </data>
+  <data name="title_footer7" xml:space="preserve">
+    <value>Thanh toán an toàn 100%</value>
+  </data>
+  <data name="title_sale" xml:space="preserve">
+    <value>Thứ sáu đen tối siêu giảm giá tất cả mặt hàng 50%</value>
+  </data>
+  <data name="title_search" xml:space="preserve">
+    <value>Bạn cần tìm gì?</value>
+  </data>
+  <data name="total" xml:space="preserve">
+    <value>THANH TOÁN</value>
+  </data>
+  <data name="towel" xml:space="preserve">
+    <value>Khăn</value>
+  </data>
+  <data name="town_city" xml:space="preserve">
+    <value>Thị trấn / Thành phố</value>
+  </data>
+  <data name="travel" xml:space="preserve">
+    <value>Du lịch</value>
+  </data>
+  <data name="trousers" xml:space="preserve">
+    <value>Quần dài</value>
+  </data>
+  <data name="underwear" xml:space="preserve">
+    <value>Đồ lót</value>
+  </data>
+  <data name="update_cart" xml:space="preserve">
+    <value>Cập nhật giỏ hàng</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Tên đăng nhập</value>
+  </data>
+  <data name="username_or_email" xml:space="preserve">
+    <value>Tên đăng nhập hoặc email</value>
+  </data>
+  <data name="view_cart" xml:space="preserve">
+    <value>Xem giỏ hàng</value>
+  </data>
+  <data name="violet" xml:space="preserve">
+    <value>Tím</value>
+  </data>
   <data name="welcome" xml:space="preserve">
     <value>Xin Chào</value>
+  </data>
+  <data name="women" xml:space="preserve">
+    <value>Nữ</value>
+  </data>
+  <data name="womens_clothing" xml:space="preserve">
+    <value>Quần áo nữ</value>
+  </data>
+  <data name="writing" xml:space="preserve">
+    <value>Viết lách luôn là một phương pháp trị liệu đối với tôi</value>
+  </data>
+  <data name="yellow" xml:space="preserve">
+    <value>Vàng</value>
+  </data>
+  <data name="your_email" xml:space="preserve">
+    <value>Email của bạn</value>
+  </data>
+  <data name="your_message" xml:space="preserve">
+    <value>Tin nhắn của bạn</value>
+  </data>
+  <data name="your_name" xml:space="preserve">
+    <value>Tên của bạn</value>
+  </data>
+  <data name="your_order" xml:space="preserve">
+    <value>Đơn hàng của bạn</value>
   </data>
 </root>

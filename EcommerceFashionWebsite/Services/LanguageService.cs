@@ -14,7 +14,7 @@ namespace EcommerceFashionWebsite.Services
         {
             var type = typeof(SharedResource);
             var assemblyName = new AssemblyName(type.GetTypeInfo().Assembly.FullName);
-            _localizer = factory.Create("SharedResource", assemblyName.Name); // §REVIEW_DJE: "SharedResource" or "ShareResource"
+            _localizer = factory.Create("SharedResource", assemblyName.Name); // REVIEW_DJE: "SharedResource" or "ShareResource"
         }
         public LocalizedString Getkey(string key)
         {

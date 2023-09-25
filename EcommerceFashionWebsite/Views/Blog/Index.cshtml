@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Blog";
+    ViewData["Title"] = @_lang.Getkey("Blog");
 }
 <section class="blog-section spad">
     <div class="container">
@@ -7,31 +7,31 @@
             <div class="col-lg-3 col-md-6 col-sm-8 order-2 order-lg-1">
                 <div class="blog-sidebar">
                     <div class="search-form">
-                        <h4>Search</h4>
+                        <h4>@_lang.Getkey("search")</h4>
                         <form action="#">
-                            <input type="text" placeholder="Search . . .  ">
+                            <input type="text" placeholder="@_lang.Getkey("search") . . .  ">
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
                     <div class="blog-catagory">
-                        <h4>Categories</h4>
+                        <h4>@_lang.Getkey("categories")</h4>
                         <ul>
-                            <li><a href="#">Fashion</a></li>
-                            <li><a href="#">Travel</a></li>
-                            <li><a href="#">Picnic</a></li>
-                            <li><a href="#">Model</a></li>
+                            <li><a href="#">@_lang.Getkey("fashion")</a></li>
+                            <li><a href="#">@_lang.Getkey("travel")</a></li>
+                            <li><a href="#">@_lang.Getkey("picnic")</a></li>
+                            <li><a href="#">@_lang.Getkey("model")</a></li>
                         </ul>
                     </div>
                     <div class="recent-post">
-                        <h4>Recent Post</h4>
+                        <h4>@_lang.Getkey("recent_post")</h4>
                         <div class="recent-blog">
                             <a href="#" class="rb-item">
                                 <div class="rb-pic">
                                     <img src="img/blog/recent-1.jpg" alt="">
                                 </div>
                                 <div class="rb-text">
-                                    <h6>The Personality Trait That Makes...</h6>
-                                    <p>Fashion <span>- May 19, 2019</span></p>
+                                    <h6>@_lang.Getkey("personality")</h6>
+                                    <p>@_lang.Getkey("fashion") <span>- @_lang.Getkey("may") 19, 2019</span></p>
                                 </div>
                             </a>
                             <a href="#" class="rb-item">
@@ -39,8 +39,8 @@
                                     <img src="img/blog/recent-2.jpg" alt="">
                                 </div>
                                 <div class="rb-text">
-                                    <h6>The Personality Trait That Makes...</h6>
-                                    <p>Fashion <span>- May 19, 2019</span></p>
+                                    <h6>@_lang.Getkey("personality")</h6>
+                                    <p>@_lang.Getkey("fashion") <span>- @_lang.Getkey("may") 19, 2019</span></p>
                                 </div>
                             </a>
                             <a href="#" class="rb-item">
@@ -48,8 +48,8 @@
                                     <img src="img/blog/recent-3.jpg" alt="">
                                 </div>
                                 <div class="rb-text">
-                                    <h6>The Personality Trait That Makes...</h6>
-                                    <p>Fashion <span>- May 19, 2019</span></p>
+                                    <h6>@_lang.Getkey("personality")</h6>
+                                    <p>@_lang.Getkey("fashion") <span>- @_lang.Getkey("may") 19, 2019</span></p>
                                 </div>
                             </a>
                             <a href="#" class="rb-item">
@@ -57,22 +57,22 @@
                                     <img src="img/blog/recent-4.jpg" alt="">
                                 </div>
                                 <div class="rb-text">
-                                    <h6>The Personality Trait That Makes...</h6>
-                                    <p>Fashion <span>- May 19, 2019</span></p>
+                                    <h6>@_lang.Getkey("personality")</h6>
+                                    <p>@_lang.Getkey("fashion") <span>- @_lang.Getkey("may") 19, 2019</span></p>
                                 </div>
                             </a>
                         </div>
                     </div>
                     <div class="blog-tags">
-                        <h4>Product Tags</h4>
+                        <h4>@_lang.Getkey("product_tags")</h4>
                         <div class="tag-item">
-                            <a href="#">Towel</a>
-                            <a href="#">Shoes</a>
-                            <a href="#">Coat</a>
-                            <a href="#">Dresses</a>
-                            <a href="#">Trousers</a>
-                            <a href="#">Men's hats</a>
-                            <a href="#">Backpack</a>
+                            <a href="#">@_lang.Getkey("towel")</a>
+                            <a href="#">@_lang.Getkey("shoes")</a>
+                            <a href="#">@_lang.Getkey("coat")</a>
+                            <a href="#">@_lang.Getkey("dresses")</a>
+                            <a href="#">@_lang.Getkey("trousers")</a>
+                            <a href="#">@_lang.Getkey("men_hat")</a>
+                            <a href="#">@_lang.Getkey("backpack")</a>
                         </div>
                     </div>
                 </div>
@@ -86,9 +86,9 @@
                             </div>
                             <div class="bi-text">
                                 <a href="./blog-details.html">
-                                    <h4>The Personality Trait That Makes People Happier</h4>
+                                    <h4>@_lang.Getkey("the_personality")</h4>
                                 </a>
-                                <p>travel <span>- May 19, 2019</span></p>
+                                <p>@_lang.Getkey("travel") <span>- @_lang.Getkey("may") 19, 2019</span></p>
                             </div>
                         </div>
                     </div>
@@ -99,9 +99,9 @@
                             </div>
                             <div class="bi-text">
                                 <a href="./blog-details.html">
-                                    <h4>This was one of our first days in Hawaii last week.</h4>
+                                    <h4>@_lang.Getkey("this_was")</h4>
                                 </a>
-                                <p>Fashion <span>- May 19, 2019</span></p>
+                                <p>@_lang.Getkey("fashion") <span>- @_lang.Getkey("may") 19, 2019</span></p>
                             </div>
                         </div>
                     </div>
@@ -112,9 +112,9 @@
                             </div>
                             <div class="bi-text">
                                 <a href="./blog-details.html">
-                                    <h4>Last week I had my first work trip of the year to Sonoma Valley</h4>
+                                    <h4>@_lang.Getkey("last_week")</h4>
                                 </a>
-                                <p>travel <span>- May 19, 2019</span></p>
+                                <p>@_lang.Getkey("travel") <span>- @_lang.Getkey("may") 19, 2019</span></p>
                             </div>
                         </div>
                     </div>
@@ -125,9 +125,9 @@
                             </div>
                             <div class="bi-text">
                                 <a href="./blog-details.html">
-                                    <h4>Happppppy New Year! I know I am a little late on this post</h4>
+                                    <h4>@_lang.Getkey("happy")</h4>
                                 </a>
-                                <p>Fashion <span>- May 19, 2019</span></p>
+                                <p>@_lang.Getkey("fashion") <span>- @_lang.Getkey("may") 19, 2019</span></p>
                             </div>
                         </div>
                     </div>
@@ -138,9 +138,9 @@
                             </div>
                             <div class="bi-text">
                                 <a href="./blog-details.html">
-                                    <h4>Absolue collection. The Lancome team has been one…</h4>
+                                    <h4>@_lang.Getkey("absolue")</h4>
                                 </a>
-                                <p>Model <span>- May 19, 2019</span></p>
+                                <p>@_lang.Getkey("model") <span>- @_lang.Getkey("may") 19, 2019</span></p>
                             </div>
                         </div>
                     </div>
@@ -151,9 +151,9 @@
                             </div>
                             <div class="bi-text">
                                 <a href="./blog-details.html">
-                                    <h4>Writing has always been kind of therapeutic for me</h4>
+                                    <h4>@_lang.Getkey("writing")</h4>
                                 </a>
-                                <p>Fashion <span>- May 19, 2019</span></p>
+                                <p>@_lang.Getkey("fashion") <span>- @_lang.Getkey("may") 19, 2019</span></p>
                             </div>
                         </div>
                     </div>
@@ -161,7 +161,7 @@
                         <div class="loading-more">
                             <i class="icon_loading"></i>
                             <a href="#">
-                                Loading More
+                                @_lang.Getkey("loading_more")
                             </a>
                         </div>
                     </div>

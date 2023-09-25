@@ -117,13 +117,493 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="aboutus" xml:space="preserve">
+    <value>About Us</value>
+  </data>
+  <data name="absolue" xml:space="preserve">
+    <value>Absolue collection. The Lancome team has been one…</value>
+  </data>
+  <data name="accessories" xml:space="preserve">
+    <value>Accessories</value>
+  </data>
+  <data name="accessories_shoes" xml:space="preserve">
+    <value>Accessories/Shoes</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="age" xml:space="preserve">
+    <value>Age</value>
+  </data>
+  <data name="all_categories" xml:space="preserve">
+    <value>All Categories</value>
+  </data>
+  <data name="all_departments" xml:space="preserve">
+    <value>All DEPARTMENTS</value>
+  </data>
+  <data name="apply" xml:space="preserve">
+    <value>APPLY</value>
+  </data>
+  <data name="backpack" xml:space="preserve">
+    <value>Backpack</value>
+  </data>
+  <data name="beauty" xml:space="preserve">
+    <value>BEAUTY</value>
+  </data>
+  <data name="biiling" xml:space="preserve">
+    <value>Biiling Details</value>
+  </data>
+  <data name="black" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="black_friday" xml:space="preserve">
+    <value>Black Friday</value>
+  </data>
+  <data name="blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="blog_details" xml:space="preserve">
+    <value>Blog Details</value>
+  </data>
+  <data name="blue" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="brand" xml:space="preserve">
+    <value>Brand</value>
+  </data>
+  <data name="brand_fashion" xml:space="preserve">
+    <value>Brand Fashion</value>
+  </data>
+  <data name="brand_outdoor" xml:space="preserve">
+    <value>Brand Outdoor Apparel</value>
+  </data>
+  <data name="categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="checkout" xml:space="preserve">
+    <value>Checkout</value>
+  </data>
+  <data name="click_here_login" xml:space="preserve">
+    <value>Click Here To Login</value>
+  </data>
+  <data name="clothings" xml:space="preserve">
+    <value>Clothings</value>
+  </data>
+  <data name="coat" xml:space="preserve">
+    <value>Coat</value>
+  </data>
+  <data name="collection" xml:space="preserve">
+    <value>Collection</value>
+  </data>
+  <data name="color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="comment_page" xml:space="preserve">
+    <value>Một số trong đó là hữu ích. Đừng để nỗi đau của bánh lái khi bị khiển trách trong niềm vui chỉ là một sợi tóc và một nỗi đau lớn nào đó. Để đến từng chi tiết nhỏ nhất, tôi yêu con người chúng ta</value>
+  </data>
+  <data name="company_name" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="confirm_password" xml:space="preserve">
+    <value>ConfirmPassword</value>
+  </data>
+  <data name="contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="contacts_us" xml:space="preserve">
+    <value>Contacts Us</value>
+  </data>
+  <data name="content_footer" xml:space="preserve">
+    <value>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat</value>
+  </data>
+  <data name="continue_shopping" xml:space="preserve">
+    <value>CONTINUE SHOPPING</value>
+  </data>
+  <data name="contrary" xml:space="preserve">
+    <value>Contrary to popular belief, Lorem Ipsum is simply random text. It has roots in a piece of classical Latin literature from 45 BC, maki years old.</value>
+  </data>
+  <data name="coutry" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="create_account" xml:space="preserve">
+    <value>Create an account?</value>
+  </data>
+  <data name="days" xml:space="preserve">
+    <value>DAYS</value>
+  </data>
+  <data name="deal_of" xml:space="preserve">
+    <value>Deal Of The Week</value>
+  </data>
+  <data name="default_sorting" xml:space="preserve">
+    <value>Default Sorting</value>
+  </data>
+  <data name="discount_code" xml:space="preserve">
+    <value>DISCOUNT CODES</value>
+  </data>
+  <data name="discover_more" xml:space="preserve">
+    <value>Discover More</value>
+  </data>
+  <data name="dresses" xml:space="preserve">
+    <value>Dresses</value>
+  </data>
+  <data name="email_address" xml:space="preserve">
+    <value>Email Address</value>
+  </data>
+  <data name="enter_code" xml:space="preserve">
+    <value>Enter your codes</value>
+  </data>
+  <data name="enter_coupon_code" xml:space="preserve">
+    <value>Enter Your Coupon Code</value>
+  </data>
+  <data name="enter_email" xml:space="preserve">
+    <value>Enter Your Mail</value>
+  </data>
+  <data name="fashion" xml:space="preserve">
+    <value>Fashion</value>
+  </data>
+  <data name="first_name" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="forger_password" xml:space="preserve">
+    <value>Forget your Password</value>
+  </data>
+  <data name="freeship" xml:space="preserve">
+    <value>Free Shipping</value>
+  </data>
+  <data name="fromtheblog" xml:space="preserve">
+    <value>From The Blogs</value>
+  </data>
+  <data name="gender" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="get_email" xml:space="preserve">
+    <value>Get E-mail updates about our latest shop and special offers.</value>
+  </data>
+  <data name="green" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="handbag" xml:space="preserve">
+    <value>Handbag</value>
+  </data>
+  <data name="happy" xml:space="preserve">
+    <value>Happppppy New Year! I know I am a little late on this post</value>
+  </data>
+  <data name="home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="hours" xml:space="preserve">
+    <value>HRS</value>
+  </data>
+  <data name="image" xml:space="preserve">
+    <value>IMAGE</value>
+  </data>
+  <data name="info" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="join_our" xml:space="preserve">
+    <value>Join Our Newsletter Now</value>
+  </data>
+  <data name="kid" xml:space="preserve">
+    <value>Kid's</value>
+  </data>
+  <data name="kids_clothing" xml:space="preserve">
+    <value>Kid’s Clothing</value>
+  </data>
   <data name="language" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="last_name" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="last_week" xml:space="preserve">
+    <value>Last week I had my first work trip of the year to Sonoma Valley</value>
+  </data>
+  <data name="leave_a_comment" xml:space="preserve">
+    <value>Leave A Comment</value>
+  </data>
+  <data name="loading_more" xml:space="preserve">
+    <value>Loading More</value>
   </data>
   <data name="login" xml:space="preserve">
     <value>Login</value>
   </data>
+  <data name="lorem" xml:space="preserve">
+    <value>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</value>
+  </data>
+  <data name="luxury_brands" xml:space="preserve">
+    <value>Luxury Brands</value>
+  </data>
+  <data name="may" xml:space="preserve">
+    <value>May</value>
+  </data>
+  <data name="men" xml:space="preserve">
+    <value>Men's</value>
+  </data>
+  <data name="mens_clothing" xml:space="preserve">
+    <value>Men’s Clothing</value>
+  </data>
+  <data name="men_hat" xml:space="preserve">
+    <value>Men's hats</value>
+  </data>
+  <data name="message" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="mins" xml:space="preserve">
+    <value>MINS</value>
+  </data>
+  <data name="model" xml:space="preserve">
+    <value>Model</value>
+  </data>
+  <data name="myaccount" xml:space="preserve">
+    <value>My Account</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="next_post" xml:space="preserve">
+    <value>Next Post</value>
+  </data>
+  <data name="or_create" xml:space="preserve">
+    <value>OR CREATE AN ACCOUNT</value>
+  </data>
+  <data name="or_login" xml:space="preserve">
+    <value>OR LOGIN</value>
+  </data>
+  <data name="our_staff" xml:space="preserve">
+    <value>Our staff will call back later and answer your questions.</value>
+  </data>
+  <data name="pages" xml:space="preserve">
+    <value>Pages</value>
+  </data>
+  <data name="page_details" xml:space="preserve">
+    <value>Psum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.</value>
+  </data>
+  <data name="page_details1" xml:space="preserve">
+    <value>“ Technology is nothing. What's important is that you have a faith in people, that they're basically good and smart, and if you give them tools, they'll do wonderful things with them.” - STEVEN JOBS</value>
+  </data>
+  <data name="password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="payment" xml:space="preserve">
+    <value>Cheque Payment</value>
+  </data>
+  <data name="paypal" xml:space="preserve">
+    <value>Paypal</value>
+  </data>
+  <data name="personality" xml:space="preserve">
+    <value>The Personality Trait That Makes...</value>
+  </data>
+  <data name="phone" xml:space="preserve">
+    <value>Phone</value>
+  </data>
+  <data name="picnic" xml:space="preserve">
+    <value>Picnic</value>
+  </data>
+  <data name="place_order" xml:space="preserve">
+    <value>PLACE ORDER</value>
+  </data>
+  <data name="posdcade" xml:space="preserve">
+    <value>Postcode / ZIP (optional)</value>
+  </data>
+  <data name="previous_post" xml:space="preserve">
+    <value>Previous Post</value>
+  </data>
+  <data name="price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="proceed" xml:space="preserve">
+    <value>PROCEED TO CHECK OUT</value>
+  </data>
+  <data name="product" xml:space="preserve">
+    <value>PRODUCT</value>
+  </data>
+  <data name="product_name" xml:space="preserve">
+    <value>PRODUCT NAME</value>
+  </data>
+  <data name="product_tags" xml:space="preserve">
+    <value>Product Tags</value>
+  </data>
+  <data name="quantity" xml:space="preserve">
+    <value>QUANTITY</value>
+  </data>
+  <data name="quick_view" xml:space="preserve">
+    <value>Quick View</value>
+  </data>
+  <data name="recent_post" xml:space="preserve">
+    <value>Recent Post</value>
+  </data>
+  <data name="red" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="sale" xml:space="preserve">
+    <value>Sale</value>
+  </data>
+  <data name="sale50" xml:space="preserve">
+    <value>Sale 50%</value>
+  </data>
+  <data name="sale_bag" xml:space="preserve">
+    <value>This is the best-selling camping bag in recent times</value>
+  </data>
+  <data name="save_password" xml:space="preserve">
+    <value>Save Password</value>
+  </data>
+  <data name="search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="second" xml:space="preserve">
+    <value>SECS</value>
+  </data>
+  <data name="select_age" xml:space="preserve">
+    <value>Select Age</value>
+  </data>
+  <data name="select_gender" xml:space="preserve">
+    <value>Select Gender</value>
+  </data>
+  <data name="send_message" xml:space="preserve">
+    <value>SEND MESSAGE</value>
+  </data>
+  <data name="serivius" xml:space="preserve">
+    <value>Serivius</value>
+  </data>
+  <data name="share" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="shoes" xml:space="preserve">
+    <value>Shoes</value>
+  </data>
+  <data name="shop" xml:space="preserve">
+    <value>Shop</value>
+  </data>
+  <data name="shopping_cart" xml:space="preserve">
+    <value>Shopping Cart</value>
+  </data>
+  <data name="shop_now" xml:space="preserve">
+    <value>Shop Now</value>
+  </data>
+  <data name="show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="show01_09" xml:space="preserve">
+    <value>Show 01- 09 Of 36 Product</value>
+  </data>
+  <data name="sign_in" xml:space="preserve">
+    <value>SIGN IN</value>
+  </data>
+  <data name="street" xml:space="preserve">
+    <value>Street Address</value>
+  </data>
+  <data name="subscribe" xml:space="preserve">
+    <value>Subscribe</value>
+  </data>
+  <data name="subtotal" xml:space="preserve">
+    <value>Subtotal</value>
+  </data>
+  <data name="the_personality" xml:space="preserve">
+    <value>The Personality Trait That Makes People Happier</value>
+  </data>
+  <data name="this_was" xml:space="preserve">
+    <value>This was one of our first days in Hawaii last week.</value>
+  </data>
+  <data name="title_fag" xml:space="preserve">
+    <value>Is There Anything I Should Bring?</value>
+  </data>
+  <data name="title_fag1" xml:space="preserve">
+    <value>Where Can I Find Market Research Reports?</value>
+  </data>
+  <data name="title_fag2" xml:space="preserve">
+    <value>Where Can I Find The Wall Street Journal?</value>
+  </data>
+  <data name="title_footer" xml:space="preserve">
+    <value>The Best Street Style From London Fashion Week</value>
+  </data>
+  <data name="title_footer1" xml:space="preserve">
+    <value>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</value>
+  </data>
+  <data name="title_footer2" xml:space="preserve">
+    <value>How To Brighten Your Wardrobe With A Dash Of Lime</value>
+  </data>
+  <data name="title_footer3" xml:space="preserve">
+    <value>For all order over 99$</value>
+  </data>
+  <data name="title_footer4" xml:space="preserve">
+    <value>Delivery On Time</value>
+  </data>
+  <data name="title_footer5" xml:space="preserve">
+    <value>If good have prolems</value>
+  </data>
+  <data name="title_footer6" xml:space="preserve">
+    <value>Secure Payment</value>
+  </data>
+  <data name="title_footer7" xml:space="preserve">
+    <value>100% secure payment</value>
+  </data>
+  <data name="title_sale" xml:space="preserve">
+    <value>Black Friday super sale up to 50% off items</value>
+  </data>
+  <data name="title_search" xml:space="preserve">
+    <value>What do you need?</value>
+  </data>
+  <data name="total" xml:space="preserve">
+    <value>TOTAL</value>
+  </data>
+  <data name="towel" xml:space="preserve">
+    <value>Towel</value>
+  </data>
+  <data name="town_city" xml:space="preserve">
+    <value>Town / City</value>
+  </data>
+  <data name="travel" xml:space="preserve">
+    <value>Travel</value>
+  </data>
+  <data name="trousers" xml:space="preserve">
+    <value>Trousers</value>
+  </data>
+  <data name="underwear" xml:space="preserve">
+    <value>Underwear</value>
+  </data>
+  <data name="update_cart" xml:space="preserve">
+    <value>UPDATE CART</value>
+  </data>
+  <data name="username" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="username_or_email" xml:space="preserve">
+    <value>Username or email address</value>
+  </data>
+  <data name="view_cart" xml:space="preserve">
+    <value>View Cart</value>
+  </data>
+  <data name="violet" xml:space="preserve">
+    <value>Violet</value>
+  </data>
   <data name="welcome" xml:space="preserve">
     <value>Welcome</value>
+  </data>
+  <data name="women" xml:space="preserve">
+    <value>Women's</value>
+  </data>
+  <data name="womens_clothing" xml:space="preserve">
+    <value>Women’s Clothing</value>
+  </data>
+  <data name="writing" xml:space="preserve">
+    <value>Writing has always been kind of therapeutic for me</value>
+  </data>
+  <data name="yellow" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="your_email" xml:space="preserve">
+    <value>Your email</value>
+  </data>
+  <data name="your_message" xml:space="preserve">
+    <value>Your message</value>
+  </data>
+  <data name="your_name" xml:space="preserve">
+    <value>Your name</value>
+  </data>
+  <data name="your_order" xml:space="preserve">
+    <value>Your Order</value>
   </data>
 </root>
