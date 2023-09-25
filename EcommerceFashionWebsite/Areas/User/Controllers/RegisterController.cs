@@ -28,21 +28,21 @@ namespace EcommerceFashionWebsite.Controllers
         {
             if (ModelState.IsValid)
             {
-                bool isValidUserName = !_db.UserModel.ToList().Exists(p => p.Username.Equals(userModel.Username));
-                bool isValidEmail = !_db.UserModel.ToList().Exists(p => p.Email.Equals(userModel.Email));
-                if (isValidUserName && isValidEmail)
-                {
-                    // Thêm thông tin user
-                    _db.UserModel.Add(userModel);
-                    // Lưu lại
-                    _db.SaveChanges();
-                    _notyf.Success("Create user successfully!");
-                    return RedirectToAction("Index", "Login");
-                } else
-                {
-                    // thong bao loi 
-                    _notyf.Error("Username or email is already exist!");
-                }
+                //bool isValidUserName = !_db.UserModel.ToList().Exists(p => p.Username.Equals(userModel.Username));
+                //bool isValidEmail = !_db.UserModel.ToList().Exists(p => p.Email.Equals(userModel.Email));
+                //if (isValidUserName && isValidEmail)
+                //{
+                //    // Thêm thông tin user
+                //    _db.UserModel.Add(userModel);
+                //    // Lưu lại
+                //    _db.SaveChanges();
+                //    _notyf.Success("Create user successfully!");
+                //    return RedirectToAction("Index", "Login");
+                //} else
+                //{
+                //    // thong bao loi 
+                //    _notyf.Error("Username or email is already exist!");
+                //}
             }
 
             return View();

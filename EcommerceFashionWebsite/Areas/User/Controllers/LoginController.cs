@@ -25,18 +25,18 @@ namespace EcommerceFashionWebsite.Areas.User.Controllers
         [HttpPost]
         public IActionResult Index(UserModel userModel)
         {
-            bool isValidUserName = _db.UserModel.ToList().Exists(p => p.Username.Equals(userModel.Username));
-            bool isValidPassword = _db.UserModel.ToList().Exists(p => p.Password.Equals(userModel.Password));
-            if (isValidUserName && isValidPassword)
-            {
-                _notyf.Success("Login successfully!");
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                // thong bao loi 
-                _notyf.Error("Username or password is wrong!");
-            }
+            //bool isValidUserName = _db.UserModel.ToList().Exists(p => p.Username.Equals(userModel.Username));
+            //bool isValidPassword = _db.UserModel.ToList().Exists(p => p.Password.Equals(userModel.Password));
+            //if (isValidUserName && isValidPassword)
+            //{
+            //    _notyf.Success("Login successfully!");
+            //    return RedirectToAction("Index", "Home");
+            //}
+            //else
+            //{
+            //    // thong bao loi 
+            //    _notyf.Error("Username or password is wrong!");
+            //}
             return View(userModel);
         }
     }
