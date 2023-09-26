@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = @_lang.Getkey("register");
+}
+
+@model UserModel
+
+<!-- Register Section Begin -->
+<div class="register-login-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="register-form">
+                    <h2>@_lang.Getkey("register")</h2>
+                    <form method="post">
+
+                        <div class="group-input">
+                            <label asp-for="Email">@_lang.Getkey("Email")</label>
+                            <input asp-for="Email" type="text" class="form-control">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="group-input">
+                            <label asp-for="Username">@_lang.Getkey("username")</label>
+                            <input asp-for="Username" type="text" class="form-control" id="username">
+                            <span asp-validation-for="Username" class="text-danger"></span>
+                        </div>
+
+                        <div class="group-input">
+                            <label asp-for="Password">@_lang.Getkey("password")</label>
+                            <input asp-for="Password" type="password" class="form-control" id="pass">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="group-input">
+                            <label asp-for="ConfirmPassword">@_lang.Getkey("confirm_password")</label>
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" id="con-pass">
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="group-input">
+                            <label asp-for="Gender">@_lang.Getkey("gender"):</label>
+                            <select asp-for="Gender" class="form-control">
+                                <option value="">@_lang.Getkey("select_gender")</option>
+                                <option value="Male">@Gender.Male</option>
+                                <option value="Female">@Gender.Female</option>
+                                <option value="Other">@Gender.Other</option>
+                            </select>
+                            <span asp-validation-for="Gender" class="text-danger"></span>
+                        </div>
+
+                        <div class="group-input">
+                            <label asp-for="Age">@_lang.Getkey("age"):</label>
+                            <select asp-for="Age" class="form-control">
+                                <option value="">@_lang.Getkey("select_age")</option>
+                                @for (int i = 12; i <= 120; i++)
+                                {
+                                    <option value="@i">@i</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Age" class="text-danger"></span>
+                        </div>
+
+
+
+                        <button type="submit" class="site-btn register-btn">@_lang.Getkey("register")</button>
+                    </form>
+                    <div class="switch-login">
+                        <a href="./login.html" class="or-login">@_lang.Getkey("or_login")</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Register Form Section End --> *@

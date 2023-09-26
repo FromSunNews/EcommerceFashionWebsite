@@ -1,3 +1,19 @@
 ﻿@{
-    Layout = "_Layout";
+    Layout = "_UserLayout";
 }
+
+@* @{
+    var user = Context.User.Identity;
+    string layout = "_UserLayout"; // Mặc định là layout cho người dùng thông thường
+
+    if (user.IsAuthenticated)
+    {
+        // Kiểm tra xem người dùng có vai trò "Admin" không
+        if (user.Equals("Admin"))
+        {
+            layout = "_AdminLayout"; // Nếu có vai trò "Admin", sử dụng layout cho Admin
+        }
+    }
+
+    Layout = layout;
+} *@
