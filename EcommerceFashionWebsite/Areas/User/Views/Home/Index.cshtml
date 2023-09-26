@@ -1,24 +1,23 @@
 ﻿@{
-    ViewData["Title"] = "Home";
+    ViewData["Title"] = @_lang.Getkey("home");
 }
+<html lang="en">
 <!-- Hero Section Begin -->
+<section class="hero-section">
+    
 <section class="hero-section"> 
     <div class="hero-items owl-carousel">
         <div class="single-hero-items set-bg" data-setbg="@Url.Content("~/user/img/hero-1.jpg")">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
-                        <span>Bag,kids</span>
-                        <h1>Black friday</h1>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore
-                        </p>
-                        <a href="#" class="primary-btn">Shop Now</a>
+                        <h1>@_lang.Getkey("black_friday")</h1>
+                        <p href="#">@_lang.Getkey("title_sale")</p>
+                        <a href="#" class="primary-btn">@_lang.Getkey("shop_now")</a>
                     </div>
                 </div>
                 <div class="off-card">
-                    <h2>Sale <span>50%</span></h2>
+                    <h2>@_lang.Getkey("sale50") </h2>
                 </div>
             </div>
         </div>
@@ -26,17 +25,16 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-5">
-                        <span>Bag,kids</span>
-                        <h1>Black friday</h1>
+                    
+                        <h1>@_lang.Getkey("black_friday")</h1>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore
+                            @_lang.Getkey("title_sale")
                         </p>
-                        <a href="#" class="primary-btn">Shop Now</a>
+                        <a href="#" class="primary-btn">@_lang.Getkey("shop_now")</a>
                     </div>
                 </div>
                 <div class="off-card">
-                    <h2>Sale <span>50%</span></h2>
+                    <h2>@_lang.Getkey("sale50")</h2>
                 </div>
             </div>
         </div>
@@ -51,7 +49,7 @@
                 <div class="single-banner">
                     <img src="~/user/img/banner-1.jpg" alt="">
                     <div class="inner-text">
-                        <h4>Men’s</h4>
+                        <h4>@_lang.Getkey("men")</h4>
                     </div>
                 </div>
             </div>
@@ -59,7 +57,7 @@
                 <div class="single-banner">
                     <img src="~/user/img/banner-2.jpg" alt="">
                     <div class="inner-text">
-                        <h4>Women’s</h4>
+                        <h4>@_lang.Getkey("women")</h4>
                     </div>
                 </div>
             </div>
@@ -67,7 +65,7 @@
                 <div class="single-banner">
                     <img src="~/user/img/banner-3.jpg" alt="">
                     <div class="inner-text">
-                        <h4>Kid’s</h4>
+                        <h4>@_lang.Getkey("kid")</h4>
                     </div>
                 </div>
             </div>
@@ -80,6 +78,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-3">
+                <div class="product-large set-bg" data-setbg="img/products/women-large.jpg">
+                    <h2>@_lang.Getkey("women")</h2>
+                    <a href="#">@_lang.Getkey("discover_more")</a>
                 <div class="product-large set-bg" data-setbg="@Url.Content("~/user/img/products/women-large.jpg")">
                     <h2>Women’s</h2>
                     <a href="#">Discover More</a>
@@ -88,15 +89,17 @@
             <div class="col-lg-8 offset-lg-1">
                 <div class="filter-control">
                     <ul>
-                        <li class="active">Clothings</li>
-                        <li>HandBag</li>
-                        <li>Shoes</li>
-                        <li>Accessories</li>
+                        <li class="active">@_lang.Getkey("clothings")</li>
+                        <li>@_lang.Getkey("handbag")</li>
+                        <li>@_lang.Getkey("shoes")</li>
+                        <li>@_lang.Getkey("accessories")</li>
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">
                     <div class="product-item">
                         <div class="pi-pic">
+                            <img src="img/products/women-1.jpg" alt="">
+                            <div class="sale">@_lang.Getkey("sale")</div>
                             <img src="~/user/img/products/women-1.jpg" alt="">
                             <div class="sale">Sale</div>
                             <div class="icon">
@@ -104,12 +107,12 @@
                             </div>
                             <ul>
                                 <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                <li class="quick-view"><a href="#">+ @_lang.Getkey("quick_view")</a></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name">Coat</div>
+                            <div class="catagory-name">@_lang.Getkey("coat")</div>
                             <a href="#">
                                 <h5>Pure Pineapple</h5>
                             </a>
@@ -127,12 +130,12 @@
                             </div>
                             <ul>
                                 <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                <li class="quick-view"><a href="#">+ @_lang.Getkey("quick_view")</a></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name">Shoes</div>
+                            <div class="catagory-name">@_lang.Getkey("shoes")</div>
                             <a href="#">
                                 <h5>Guangzhou sweater</h5>
                             </a>
@@ -154,7 +157,7 @@
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
+                            <div class="catagory-name">@_lang.Getkey("accessories")</div>
                             <a href="#">
                                 <h5>Pure Pineapple</h5>
                             </a>
@@ -171,12 +174,12 @@
                             </div>
                             <ul>
                                 <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                <li class="quick-view"><a href="#">+ @_lang.Getkey("quick_view")</a></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
+                            <div class="catagory-name">@_lang.Getkey("handbag")</div>
                             <a href="#">
                                 <h5>Converse Shoes</h5>
                             </a>
@@ -196,35 +199,34 @@
     <div class="container">
         <div class="col-lg-6 text-center">
             <div class="section-title">
-                <h2>Deal Of The Week</h2>
+                <h2>@_lang.Getkey("deal_of")</h2>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed<br /> do ipsum dolor sit amet,
-                    consectetur adipisicing elit
+                    @_lang.Getkey("sale_bag")
                 </p>
                 <div class="product-price">
                     $35.00
-                    <span>/ HanBag</span>
+                    <span>/ @_lang.Getkey("backpack")</span>
                 </div>
             </div>
             <div class="countdown-timer" id="countdown">
                 <div class="cd-item">
                     <span>56</span>
-                    <p>Days</p>
+                    <p>@_lang.Getkey("days")</p>
                 </div>
                 <div class="cd-item">
                     <span>12</span>
-                    <p>Hrs</p>
+                    <p>@_lang.Getkey("hours")</p>
                 </div>
                 <div class="cd-item">
                     <span>40</span>
-                    <p>Mins</p>
+                    <p>@_lang.Getkey("mins")</p>
                 </div>
                 <div class="cd-item">
                     <span>52</span>
-                    <p>Secs</p>
+                    <p>@_lang.Getkey("second")</p>
                 </div>
             </div>
-            <a href="#" class="primary-btn">Shop Now</a>
+            <a href="#" class="primary-btn">@_lang.Getkey("shop_now")</a>
         </div>
     </div>
 </section>
@@ -236,15 +238,17 @@
             <div class="col-lg-8">
                 <div class="filter-control">
                     <ul>
-                        <li class="active">Clothings</li>
-                        <li>HandBag</li>
-                        <li>Shoes</li>
-                        <li>Accessories</li>
+                        <li class="active">@_lang.Getkey("clothings")</li>
+                        <li>@_lang.Getkey("handbag")</li>
+                        <li>@_lang.Getkey("shoes")</li>
+                        <li>@_lang.Getkey("accessories")</li>
                     </ul>
                 </div>
                 <div class="product-slider owl-carousel">
                     <div class="product-item">
                         <div class="pi-pic">
+                            <img src="img/products/man-1.jpg" alt="">
+                            <div class="sale">@_lang.Getkey("sale")</div>
                             <img src="~/user/img/products/man-1.jpg" alt="">
                             <div class="sale">Sale</div>
                             <div class="icon">
@@ -252,18 +256,18 @@
                             </div>
                             <ul>
                                 <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                <li class="quick-view"><a href="#">+ @_lang.Getkey("quick_view")</a></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name">Coat</div>
+                            <div class="catagory-name">@_lang.Getkey("coat")</div>
                             <a href="#">
                                 <h5>Pure Pineapple</h5>
                             </a>
                             <div class="product-price">
-                                $14.00
-                                <span>$35.00</span>
+                                14.00
+                                <span>35.00</span>
                             </div>
                         </div>
                     </div>
@@ -275,17 +279,17 @@
                             </div>
                             <ul>
                                 <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                <li class="quick-view"><a href="#">+ @_lang.Getkey("quick_view")</a></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name">Shoes</div>
+                            <div class="catagory-name">@_lang.Getkey("shoes")</div>
                             <a href="#">
                                 <h5>Guangzhou sweater</h5>
                             </a>
                             <div class="product-price">
-                                $13.00
+                                13.00
                             </div>
                         </div>
                     </div>
@@ -297,17 +301,17 @@
                             </div>
                             <ul>
                                 <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                <li class="quick-view"><a href="#">+ @_lang.Getkey("quick_view")</a></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
+                            <div class="catagory-name">@_lang.Getkey("towel")</div>
                             <a href="#">
                                 <h5>Pure Pineapple</h5>
                             </a>
                             <div class="product-price">
-                                $34.00
+                                34.00
                             </div>
                         </div>
                     </div>
@@ -319,23 +323,26 @@
                             </div>
                             <ul>
                                 <li class="w-icon active"><a href="#"><i class="icon_bag_alt"></i></a></li>
-                                <li class="quick-view"><a href="#">+ Quick View</a></li>
+                                <li class="quick-view"><a href="#">+ @_lang.Getkey("quick_view")</a></li>
                                 <li class="w-icon"><a href="#"><i class="fa fa-random"></i></a></li>
                             </ul>
                         </div>
                         <div class="pi-text">
-                            <div class="catagory-name">Towel</div>
+                            <div class="catagory-name">@_lang.Getkey("towel")</div>
                             <a href="#">
                                 <h5>Converse Shoes</h5>
                             </a>
                             <div class="product-price">
-                                $34.00
+                                34.00
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-3 offset-lg-1">
+                <div class="product-large set-bg m-large" data-setbg="img/products/man-large.jpg">
+                    <h2>@_lang.Getkey("men")</h2>
+                    <a href="#">@_lang.Getkey("discover_more")</a>
                 <div class="product-large set-bg m-large" data-setbg="@Url.Content("~/user/img/products/man-large.jpg")">
                     <h2>Men’s</h2>
                     <a href="#">Discover More</a>
@@ -391,7 +398,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>From The Blog</h2>
+                    <h2>@_lang.Getkey("fromtheblog")</h2>
                 </div>
             </div>
         </div>
@@ -403,7 +410,7 @@
                         <div class="tag-list">
                             <div class="tag-item">
                                 <i class="fa fa-calendar-o"></i>
-                                May 4,2019
+                                @_lang.Getkey("may") 4,2019
                             </div>
                             <div class="tag-item">
                                 <i class="fa fa-comment-o"></i>
@@ -411,9 +418,9 @@
                             </div>
                         </div>
                         <a href="#">
-                            <h4>The Best Street Style From London Fashion Week</h4>
+                            <h4>@_lang.Getkey("title_footer")</h4>
                         </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        <p>@_lang.Getkey("content_footer") </p>
                     </div>
                 </div>
             </div>
@@ -424,7 +431,7 @@
                         <div class="tag-list">
                             <div class="tag-item">
                                 <i class="fa fa-calendar-o"></i>
-                                May 4,2019
+                                @_lang.Getkey("may") 4,2019
                             </div>
                             <div class="tag-item">
                                 <i class="fa fa-comment-o"></i>
@@ -432,9 +439,9 @@
                             </div>
                         </div>
                         <a href="#">
-                            <h4>Vogue's Ultimate Guide To Autumn/Winter 2019 Shoes</h4>
+                            <h4>@_lang.Getkey("title_footer1")</h4>
                         </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        <p>@_lang.Getkey("content_footer") </p>
                     </div>
                 </div>
             </div>
@@ -445,7 +452,7 @@
                         <div class="tag-list">
                             <div class="tag-item">
                                 <i class="fa fa-calendar-o"></i>
-                                May 4,2019
+                                @_lang.Getkey("may") 4,2019
                             </div>
                             <div class="tag-item">
                                 <i class="fa fa-comment-o"></i>
@@ -453,9 +460,9 @@
                             </div>
                         </div>
                         <a href="#">
-                            <h4>How To Brighten Your Wardrobe With A Dash Of Lime</h4>
+                            <h4>@_lang.Getkey("title_footer2")</h4>
                         </a>
-                        <p>Sed quia non numquam modi tempora indunt ut labore et dolore magnam aliquam quaerat </p>
+                        <p>@_lang.Getkey("content_footer")  </p>
                     </div>
                 </div>
             </div>
@@ -468,8 +475,8 @@
                             <img src="~/user/img/icon-1.png" alt="">
                         </div>
                         <div class="sb-text">
-                            <h6>Free Shipping</h6>
-                            <p>For all order over 99$</p>
+                            <h6>@_lang.Getkey("freeship")</h6>
+                            <p>@_lang.Getkey("title_footer3")</p>
                         </div>
                     </div>
                 </div>
@@ -479,8 +486,8 @@
                             <img src="~/user/img/icon-2.png" alt="">
                         </div>
                         <div class="sb-text">
-                            <h6>Delivery On Time</h6>
-                            <p>If good have prolems</p>
+                            <h6>@_lang.Getkey("title_footer4")</h6>
+                            <p>@_lang.Getkey("title_footer5")</p>
                         </div>
                     </div>
                 </div>
@@ -490,8 +497,8 @@
                             <img src="~/user/img/icon-1.png" alt="">
                         </div>
                         <div class="sb-text">
-                            <h6>Secure Payment</h6>
-                            <p>100% secure payment</p>
+                            <h6>@_lang.Getkey("title_footer6")</h6>
+                            <p>@_lang.Getkey("title_footer7")</p>
                         </div>
                     </div>
                 </div>
@@ -499,4 +506,4 @@
         </div>
     </div>
 </section>
-<!-- Latest Blog Section End -->
+<!-- Latest Blog Section End -->    
