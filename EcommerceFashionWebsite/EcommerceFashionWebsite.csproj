@@ -8,38 +8,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\user\fonts\ElegantIcons.svg" />
-    <None Include="wwwroot\user\fonts\fontawesome-webfont.svg" />
-    <None Include="wwwroot\user\fonts\fontawesome-webfont.woff2" />
-    <None Include="wwwroot\user\fonts\themify.svg" />
-    <None Include="wwwroot\user\js\bootstrap.min.js" />
-    <None Include="wwwroot\user\js\imagesloaded.pkgd.min.js" />
-    <None Include="wwwroot\user\js\jquery-3.3.1.min.js" />
-    <None Include="wwwroot\user\js\jquery-ui.min.js" />
-    <None Include="wwwroot\user\js\jquery.countdown.min.js" />
-    <None Include="wwwroot\user\js\jquery.dd.min.js" />
-    <None Include="wwwroot\user\js\jquery.nice-select.min.js" />
-    <None Include="wwwroot\user\js\jquery.slicknav.js" />
-    <None Include="wwwroot\user\js\jquery.zoom.min.js" />
-    <None Include="wwwroot\user\js\main.js" />
-    <None Include="wwwroot\user\js\owl.carousel.min.js" />
-    <None Include="wwwroot\user\js\popper.js" />
-    <None Include="wwwroot\user\js\site.js" />
-    <None Include="wwwroot\user\Source\bootstrap-4.4.1-dist.zip" />
-    <None Include="wwwroot\user\Source\elegant_font.zip" />
-    <None Include="wwwroot\user\Source\font-awesome-4.7.0.zip" />
-    <None Include="wwwroot\user\Source\jquery-nice-select-1.1.0.zip" />
-    <None Include="wwwroot\user\Source\jquery-ui-1.12.1.zip" />
-    <None Include="wwwroot\user\Source\jQuery.countdown-master.zip" />
-    <None Include="wwwroot\user\Source\Magnific-Popup-master.zip" />
-    <None Include="wwwroot\user\Source\OwlCarousel2-2.3.4.zip" />
-    <None Include="wwwroot\user\Source\sass.zip" />
-    <None Include="wwwroot\user\Source\SlickNav-master.zip" />
-    <None Include="wwwroot\user\Source\themify-icons-font.zip" />
-    <None Include="wwwroot\user\Source\zoom-master.zip" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="7.0.10" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.10" />
@@ -60,13 +28,8 @@
     <Folder Include="Data\" />
     <Folder Include="Models\" />
     <Folder Include="wwwroot\admin\" />
-    <Folder Include="wwwroot\user\css\" />
-    <Folder Include="wwwroot\user\css\bootstrap\mixins\" />
-    <Folder Include="wwwroot\user\css\bootstrap\utilities\" />
-    <Folder Include="wwwroot\user\fonts\icomoon\demo-files\" />
-    <Folder Include="wwwroot\user\fonts\icomoon\fonts\" />
-    <Folder Include="wwwroot\user\images\" />
-    <Folder Include="wwwroot\user\js\" />
+    <Folder Include="wwwroot\image\" />
+    <Folder Include="wwwroot\user\" />
   </ItemGroup>
 
 </Project>
