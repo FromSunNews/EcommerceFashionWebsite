@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace EcommerceFashionWebsite.Models
 {
@@ -10,14 +11,30 @@ namespace EcommerceFashionWebsite.Models
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required]
-        public double Price { get; set; }
-        public string? Description { get; set; }
-        public string? ImageUrl { get; set; }
-        [Required]
-        public int CategoryId { get; set; }
-        [ForeignKey("CategoryId")]
-        [ValidateNever]
-        public CategoryModel Category { get; set; }
+        public bool IsLiked { get; set; } = false;
+        public int StarRating { get; set; } = 5; 
+        public List<string> Images { get; set; }
+        public string Desc { get; set; }
+        public float PriceApply { get; set; } = 0;
+        public float PriceOrigin { get; set; } = 0;
+        
+        //public List<Sizes> Size { get; set; }
+        public int NumberInStock { get; set; } = 0;
+        public List<CategoryModel> Categories { get; set; }
+        public List<string> Tags { get; set; }
+        public int Introduction { get; set; }
+        public string Features { get; set; }
+        public ProductInfoModel ProductInfo { get; set; }
+        public List<ReviewModel> ProductReview { get; set; }
+        public List<string> Colors { get; set; }
     }
+
+    public enum Sizes
+    {
+        S,
+        M,
+        L,
+        XS
+    }
+
 }
