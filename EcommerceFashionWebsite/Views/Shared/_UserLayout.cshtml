@@ -1,18 +1,126 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Fashi Template">
-    <meta name="keywords" content="Fashi, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @* ============================================================ *@
+
+
+    <!-- Google Font Api KEY-->
+    <meta name="google_font_api" content="AIzaSyBG58yNdAjc20_8jAvLNSVi9E4Xhwjau_k">
+    <!-- Config Options -->
+      
+    <meta name="setting_options" content='{
+    "saveLocal": "localStorage",
+    "storeKey": "huisetting",
+    "setting": {
+        "app_name": {
+            "value": "Fashi."
+        },
+        "theme_scheme_direction": {
+            "value": "ltr"
+        },
+        "theme_scheme": {
+            "value": "light"
+        },
+        "theme_style_appearance": {
+            "value": [
+                "theme-flat",
+                "theme-bordered"
+            ]
+        },
+        "theme_color": {
+            "colors": {
+                "--{{prefix}}primary": "#456575",
+                "--{{prefix}}info": "#569cd2"
+            },
+            "value": "custom"
+        },
+        "theme_transition": {
+            "value": "theme-with-animation"
+        },
+        "theme_font_size": {
+            "value": "theme-fs-md"
+        },
+        "page_layout": {
+            "value": "container-fluid"
+        },
+        "header_navbar_show": {
+            "value": []
+        },
+        "header_navbar": {
+            "value": "navs-default"
+        },
+        "header_banner": {
+            "value": "default"
+        },
+        "card_color": {
+            "value": "card-default"
+        },
+        "sidebar_show": {
+            "value": []
+        },
+        "sidebar_color": {
+            "value": "sidebar-white"
+        },
+        "sidebar_type": {
+            "value": []
+        },
+        "sidebar_menu_style": {
+            "value": "sidebar-default navs-rounded-all"
+        },
+        "footer": {
+            "value": "default"
+        },
+        "body_font_family": {
+            "value": "Inter"
+        },
+        "heading_font_family": {
+            "value": "Inter"
+        }
+    }
+}'>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/user/img/logo1.png" />
+
+    <!-- Library / Plugin Css Build -->
+    <link rel="stylesheet" href="~/assets/css/core/libs.min.css" />
+
+
+    <!-- SwiperSlider css -->
+    <link rel="stylesheet" href="~/assets/vendor/swiperSlider/swiper-bundle.min.css">
+
+
+    <!-- Hope Ui Design System Css -->
+    <link rel="stylesheet" href="~/assets/css/hope-ui.min.css?v=2.2.0" />
+    <link rel="stylesheet" href="~/assets/css/pro.min.css?v=2.2.0" />
+
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="~/assets/css/custom.min.css?v=2.2.0" />
+
+    <!-- Dark Css -->
+    <link rel="stylesheet" href="~/assets/css/dark.min.css?v=2.2.0" />
+
+    <!-- Customizer Css -->
+    <link rel="stylesheet" href="~/assets/css/customizer.min.css?v=2.2.0" />
+
+    <!-- RTL Css -->
+    <link rel="stylesheet" href="~/assets/css/rtl.min.css?v=2.2.0" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/e-commerce/css/e-commerce.min.css" />
+
+    @* ============================================================ *@
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@ViewData["Title"]</title>
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
     <!-- Css Styles -->
-    <link rel="stylesheet" href="~/user/css/bootstrap.min.css" type="text/css">
+    @* <link rel="stylesheet" href="~/user/css/bootstrap.min.css" type="text/css"> *@
     <link rel="stylesheet" href="~/user/css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="~/user/css/themify-icons.css" type="text/css">
     <link rel="stylesheet" href="~/user/css/elegant-icons.css" type="text/css">
@@ -21,14 +129,17 @@
     <link rel="stylesheet" href="~/user/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="~/user/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="~/user/css/style.css" type="text/css">
+
+
+
 </head>
 
 <body>
     
     <!-- Page Preloder -->
-    @* <div id="preloder">
+    <div id="preloder">
         <div class="loader"></div>
-    </div> *@
+    </div>
 
     <!-- Header Section Begin -->
     <header class="header-section">
@@ -81,7 +192,7 @@
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
                             <a href="#">
-                                <img src="~/user/img/logo.png" alt="">
+                                <img src="~/user/img/logo.png" alt="" >
                             </a>
                         </div>
                     </div>
@@ -130,12 +241,8 @@
                         <li>
                             <a href="#">@_lang.Getkey("pages")</a>
                             <ul class="dropdown">
-                                <li id="blog-details"><a href="~/User/Blog_Details">Blog Details</a></li>
-                                <li id="shopping-cart"><a href="~/User/Shopping_Cart">Shopping Cart</a></li>
-                                <li id="checkout"><a href="~/User/Checkout">Checkout</a></li>
-                                <li id="fag"><a href="~/User/Fag">FAQ</a></li>
-                                <li id="register"><a href="~/Identity/Account/Register">Register</a></li>
-                                <li id="login"><a href="~/Identity/Account/Login">@_lang.Getkey("login")</a></li>
+                                <li id="blog-details"><a href="~/User/Blog_Details">@_lang.Getkey("blog_detail")</a></li>
+                                <li id="fag"><a href="~/User/Fag">@_lang.Getkey("faq")</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -260,7 +367,7 @@
                     <div class="col-lg-12">
                         <div class="copyright-text">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> | Developed <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://github.com/FromSunNews" target="_blank">FromSunnews</a> and <a href="https://github.com/sinhz" target="_blank">Sinhz</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </div>
                         <div class="payment-pic">
@@ -271,10 +378,46 @@
             </div>
         </div>
     </footer>
+
+
+    @* =============================Admin=============================== *@
+
+    <script src="~/assets/js/core/libs.min.js"></script>
+    <!-- Plugin Scripts -->
+    <!-- Slider-tab Script -->
+    <script src="~/assets/js/plugins/slider-tabs.js"></script>
+
+
+
+    <!-- SwiperSlider Script -->
+    <script src="~/assets/vendor/swiperSlider/swiper-bundle.min.js"></script>
+    <!-- Lodash Utility -->
+    <script src="~/assets/vendor/lodash/lodash.min.js"></script>
+    <!-- Utilities Functions -->
+    <script src="~/assets/js/iqonic-script/utility.js"></script>
+    <!-- Settings Script -->
+    <script src="~/assets/js/iqonic-script/setting.js"></script>
+    <!-- Settings Init Script -->
+    <script src="~/assets/js/setting-init.js"></script>
+    <!-- External Library Bundle Script -->
+    <script src="~/assets/js/core/external.min.js"></script>
+    <!-- Widgetchart Script -->
+    <script src="~/assets/js/charts/widgetcharts.js?v=2.2.0" defer></script>
+    <!-- Dashboard Script -->
+    <script src="~/assets/js/charts/dashboard.js?v=2.2.0" defer></script>
+    <script src="~/assets/js/charts/alternate-dashboard.js?v=2.2.0" defer></script>
+    <!-- Hopeui Script -->
+    <script src="~/assets/js/hope-ui.js?v=2.2.0" defer></script>
+    <script src="~/assets/js/hope-uipro.js?v=2.2.0" defer></script>
+    <script src="~/assets/js/sidebar.js?v=2.2.0" defer></script>
+    <script src="~/e-commerce/js/ecommerce.js" defer></script>
+
+    @* ============================================================ *@
+
     <!-- Footer Section End -->
     <!-- Js Plugins -->
     <script src="~/user/js/jquery-3.3.1.min.js"></script>
-    <script src="~/user/js/bootstrap.min.js"></script>
+    @* <script src="~/user/js/bootstrap.min.js"></script> *@
     <script src="~/user/js/jquery-ui.min.js"></script>
     <script src="~/user/js/jquery.countdown.min.js"></script>
     <script src="~/user/js/jquery.nice-select.min.js"></script>
@@ -289,6 +432,8 @@
     <script src="~/user/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/user/js/site.js" asp-append-version="true"></script>
     <script src="~/user/js/site.js" asp-append-version="true"></script>
+
+    
     <script>
         var currentUrl = window.location.pathname.replace(/^\/User\//, '').toLowerCase();
         console.log("currentUrl", currentUrl);
