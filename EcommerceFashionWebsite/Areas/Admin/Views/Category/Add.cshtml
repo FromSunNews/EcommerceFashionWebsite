@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Add Category";
+}
+@using EcommerceFashionWebsite.Areas.Admin.ViewModels;
+@model CreateCategoryViewModel;
+<div class="content-inner container-fluid pb-0" id="page_layout">
+    <div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Add Category</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="new-user-info">
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Name" class="form-label">Name:</label>
+                                        <input asp-for="Name" class="form-control" aria-required="true" placeholder="Name..." />
+                                        <span asp-validation-for="Name" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="group-input col-md-6">
+                                        <label asp-for="Type" class="form-label">Type:</label>
+                                        <select asp-for="Type" class="form-control">
+                                            <option value="">Select type</option>
+                                            <option value="FEMALE">@ProductType.FEMALE</option>
+                                            <option value="MALE">@ProductType.MALE</option>
+                                            <option value="UNISEX">@ProductType.UNISEX</option>
+                                        </select>
+                                        <span asp-validation-for="Type" class="text-danger"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="Desc" class="form-label">Description:</label>
+                                        <textarea asp-for="Desc" rows="3" class="form-control" placeholder="Description..."></textarea>
+                                        <span asp-validation-for="Desc" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="Image" class="form-label">Image:</label>
+                                        <input asp-for="Image" type="file" class="form-control" placeholder="Image..." />
+                                        <span asp-validation-for="Image" class="text-danger mt-1"></span>
+                                    </div>
+
+
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

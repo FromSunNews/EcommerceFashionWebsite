@@ -1,5 +1,7 @@
 ﻿using AspNetCoreHero.ToastNotification;
 using EcommerceFashionWebsite.Data;
+using EcommerceFashionWebsite.Helpers;
+using EcommerceFashionWebsite.Interfaces;
 using EcommerceFashionWebsite.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
@@ -45,6 +47,8 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.Sign
 
 builder.Services.AddNotyf(config => { config.DurationInSeconds = 5; config.IsDismissable = true; config.Position = NotyfPosition.TopRight; });
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IPhotoService, PhotoService>();
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
 var app = builder.Build();
 app.UseStatusCodePagesWithRedirects("/User/Home/Error?statuscode={0}");

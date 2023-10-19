@@ -3,17 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcommerceFashionWebsite.Models
 {
-    public class ReviewModel
+    public class ImageModel
     {
         [Key]
         public int Id { get; set; }
 
         [ForeignKey("ProductModel")]
         public int ProductId { get; set; }
-        public string UserName { get; set; }
         [Required]
-        public string UserId { get; set; }
-        public string Comment { get; set; }
-        public int Rating { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

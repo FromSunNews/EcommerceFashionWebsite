@@ -1,6 +1,8 @@
 ﻿using EcommerceFashionWebsite.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Xml;
 
 namespace EcommerceFashionWebsite.Data
 {
@@ -11,10 +13,41 @@ namespace EcommerceFashionWebsite.Data
         {
         }
 
-        public DbSet<UserModel> UserModel { get; set; } 
-        public DbSet<CategoryModel> CategoryModel { get; set; }
         public DbSet<ProductModel> ProductModel { get; set; }
+
+        // =======================================
+        public DbSet<ImageModel> ImageModel { get; set; }
+
+        // ======================================
+        public DbSet<CategoryModel> CategoryModel { get; set; }
+        public DbSet<ProductCategoryModel> ProductCategoryModel { get; set; }
+
+        // =======================================
         public DbSet<ReviewModel> ReviewModel { get; set; }
+        // =========================================
+        public DbSet<UserModel> UserModel { get; set; } 
+
+
         public DbSet<ProductInfoModel> ProductInfoModel { get; set; }
+
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            
+
+            modelBuilder.Entity<ProductCategoryModel>()
+            .HasKey(pc => pc.Id);
+
+            modelBuilder.Entity<ProductCategoryModel>()
+                .HasOne(pc => pc.Product)
+                .WithMany(p => p.Categories)
+                .HasForeignKey(pc => pc.ProductId);
+
+            modelBuilder.Entity<ProductCategoryModel>()
+                .HasOne(pc => pc.Category)
+                .WithOne(c => c.ProductCategory)
+                .HasForeignKey<ProductCategoryModel>(pc => pc.CategoryId);
+        }
     }
 }
