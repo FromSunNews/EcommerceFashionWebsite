@@ -9,11 +9,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace EcommerceFashionWebsite.Data.Migrations
+namespace EcommerceFashionWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230925035743_update_user")]
-    partial class update_user
+    [Migration("20231018225919_bcv")]
+    partial class bcv
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,12 +40,40 @@ namespace EcommerceFashionWebsite.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("CategoryModel");
                 });
 
-            modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductModel", b =>
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.ImageModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductModelId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductModelId");
+
+                    b.ToTable("ImageModel");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductCategoryModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -56,24 +84,157 @@ namespace EcommerceFashionWebsite.Data.Migrations
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId")
+                        .IsUnique();
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductCategoryModel");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductInfoModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ColorCode")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
+                    b.Property<string>("Description")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdealFor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Manufacturer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Material")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StyleCode")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Waterproof")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ProductInfoModel");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Colors")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Desc")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Features")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Introduction")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsLiked")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<int>("NumberInStock")
+                        .HasColumnType("int");
+
+                    b.Property<float>("PriceApply")
+                        .HasColumnType("real");
+
+                    b.Property<float>("PriceOrigin")
+                        .HasColumnType("real");
+
+                    b.Property<int>("ProductInfoId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StarRating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tags")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
+                    b.HasIndex("ProductInfoId");
 
                     b.ToTable("ProductModel");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.ReviewModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ProductModelId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductModelId");
+
+                    b.ToTable("ReviewModel");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -297,15 +458,48 @@ namespace EcommerceFashionWebsite.Data.Migrations
                     b.HasDiscriminator().HasValue("UserModel");
                 });
 
-            modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductModel", b =>
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.ImageModel", b =>
+                {
+                    b.HasOne("EcommerceFashionWebsite.Models.ProductModel", null)
+                        .WithMany("Images")
+                        .HasForeignKey("ProductModelId");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductCategoryModel", b =>
                 {
                     b.HasOne("EcommerceFashionWebsite.Models.CategoryModel", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
+                        .WithOne("ProductCategory")
+                        .HasForeignKey("EcommerceFashionWebsite.Models.ProductCategoryModel", "CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceFashionWebsite.Models.ProductModel", "Product")
+                        .WithMany("Categories")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Category");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductModel", b =>
+                {
+                    b.HasOne("EcommerceFashionWebsite.Models.ProductInfoModel", "ProductInfo")
+                        .WithMany()
+                        .HasForeignKey("ProductInfoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProductInfo");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.ReviewModel", b =>
+                {
+                    b.HasOne("EcommerceFashionWebsite.Models.ProductModel", null)
+                        .WithMany("Reviews")
+                        .HasForeignKey("ProductModelId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -357,6 +551,21 @@ namespace EcommerceFashionWebsite.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.CategoryModel", b =>
+                {
+                    b.Navigation("ProductCategory")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductModel", b =>
+                {
+                    b.Navigation("Categories");
+
+                    b.Navigation("Images");
+
+                    b.Navigation("Reviews");
                 });
 #pragma warning restore 612, 618
         }
