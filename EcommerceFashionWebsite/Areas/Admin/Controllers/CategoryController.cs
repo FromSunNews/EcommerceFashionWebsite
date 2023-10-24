@@ -64,6 +64,7 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
 
             var categoryVM = new CreateCategoryViewModel
             {
+                Id = categoryModel.Id,
                 Name = categoryModel.Name,
                 Type = categoryModel.Type,
                 Desc = categoryModel.Desc,
@@ -86,6 +87,7 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
 
                 var categoryModel = new CategoryModel
                 {
+                    Id = categoryVM.Id,
                     Name = categoryVM.Name,
                     Type = categoryVM.Type,
                     Desc = categoryVM.Desc,
@@ -100,7 +102,7 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
             return View();
         }
 
-
+        [HttpPost]
         public async Task<IActionResult> Delete(int id)
         {
             if (id == 0)

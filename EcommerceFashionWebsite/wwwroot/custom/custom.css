@@ -1,0 +1,125 @@
+﻿#imagePreview {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:wrap;
+    gap: 10px;
+}
+
+.container-image-product {
+    position: relative;
+    display: block;
+    width: 135px;
+    height: 135px;
+}
+
+.image-image-product {
+    position: absolute;
+    width: 135px;
+    height: 135px;
+}
+
+.imageOne-image-product {
+    top: 0;
+    left: 0;
+}
+
+.imageTwo-image-product {
+    top: 10px;
+    left: 20px;
+}
+
+    .row-desc {
+        min-width: 350px;
+    }
+
+.detail-product-list {
+    color: #252525 !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    font-size: 16px !important;
+}
+
+.nav-item.admin-ui {
+    background: #ffffff !important;
+}
+
+a.admin-ui:hover,
+a.admin-ui:focus {
+    text-decoration: none;
+    outline: none;
+    color: #5a89a1 !important;
+}
+
+.lang-hover {
+    display: none;
+    position: relative;
+}
+
+.lang-hover::before {
+    content: "";
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top:-40px;
+    background-color: transparent;
+}
+
+/* Khi hover vào .lang-icon, hiển thị .lang-hover */
+.lang-icon:hover .lang-hover {
+    display: block;
+}
+
+.depart-item {
+    position: relative;
+}
+
+.depart-item-hover {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 10px;
+    left: 102% ;
+}
+
+    .depart-item-hover ::before {
+        content: "";
+        width: 10px;
+        height: 120%;
+        position: absolute;
+        left: -5px;
+        top: -25px;
+        background-color: transparent;
+    }
+
+.depart-item:hover .depart-item-hover {
+    display: block;
+}
+
+.category-btn-hover {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: 45px;
+    right: 0;
+    z-index: 99;
+    text-decoration:none;
+}
+
+.category-btn:hover .category-btn-hover {
+    display: block !important;
+}
+
+.search-result-modal {
+    top: 50px;
+    z-index: 99;
+    max-height: 300px;
+    overflow-y: auto; 
+}
+
+    .search-result-modal {
+        display: none;
+    }
+    .input-group:hover .search-result-modal {
+        display: flex;
+        flex-direction: column;
+    }

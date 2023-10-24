@@ -34,20 +34,6 @@ namespace EcommerceFashionWebsite.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            
-
-            modelBuilder.Entity<ProductCategoryModel>()
-            .HasKey(pc => pc.Id);
-
-            modelBuilder.Entity<ProductCategoryModel>()
-                .HasOne(pc => pc.Product)
-                .WithMany(p => p.Categories)
-                .HasForeignKey(pc => pc.ProductId);
-
-            modelBuilder.Entity<ProductCategoryModel>()
-                .HasOne(pc => pc.Category)
-                .WithOne(c => c.ProductCategory)
-                .HasForeignKey<ProductCategoryModel>(pc => pc.CategoryId);
         }
     }
 }

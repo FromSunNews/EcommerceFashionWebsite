@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcommerceFashionWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231018225919_bcv")]
-    partial class bcv
+    [Migration("20231021094453_update")]
+    partial class update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -36,12 +36,21 @@ namespace EcommerceFashionWebsite.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Desc")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
+
+                    b.Property<string>("publicIdImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("urlImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -106,31 +115,24 @@ namespace EcommerceFashionWebsite.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ColorCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("IdealFor")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Manufacturer")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Material")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("StyleCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Waterproof")
@@ -154,15 +156,13 @@ namespace EcommerceFashionWebsite.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Desc")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Features")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Introduction")
-                        .HasColumnType("int");
+                    b.Property<string>("Introduction")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsLiked")
                         .HasColumnType("bit");
@@ -180,18 +180,16 @@ namespace EcommerceFashionWebsite.Migrations
                     b.Property<float>("PriceOrigin")
                         .HasColumnType("real");
 
-                    b.Property<int>("ProductInfoId")
+                    b.Property<int?>("ProductInfoId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Size")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Sizes")
+                        .HasColumnType("int");
 
                     b.Property<int>("StarRating")
                         .HasColumnType("int");
 
                     b.Property<string>("Tags")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -488,9 +486,7 @@ namespace EcommerceFashionWebsite.Migrations
                 {
                     b.HasOne("EcommerceFashionWebsite.Models.ProductInfoModel", "ProductInfo")
                         .WithMany()
-                        .HasForeignKey("ProductInfoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ProductInfoId");
 
                     b.Navigation("ProductInfo");
                 });
@@ -555,8 +551,7 @@ namespace EcommerceFashionWebsite.Migrations
 
             modelBuilder.Entity("EcommerceFashionWebsite.Models.CategoryModel", b =>
                 {
-                    b.Navigation("ProductCategory")
-                        .IsRequired();
+                    b.Navigation("ProductCategory");
                 });
 
             modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductModel", b =>

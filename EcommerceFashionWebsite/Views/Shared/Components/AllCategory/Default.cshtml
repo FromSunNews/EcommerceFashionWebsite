@@ -1,0 +1,34 @@
+﻿
+@model ICollection<CategoryModel>
+
+@{
+    <ul class="category-btn-hover py-3 shadow rounded border">
+        @foreach (var category in Model)
+        {
+            <li class="list-group">
+                <a class="py-2 px-5 admin-ui" style="color: #252525;" id="btn-select-category" data-category-id="@category.Id">@category.Name</a>
+            </li>
+        }
+    </ul>
+}
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            // Lắng nghe sự kiện khi nút xóa được click
+            $('.btn-select-category').click(function () {
+                // Lấy ID của danh mục muốn xóa từ thuộc tính data
+                var categoryId = $(this).data('category-id');
+                var categoryName = $(this).text();
+                console.log("categoryId", categoryId);
+                console.log("categoryName", categoryName);
+
+                // Gán giá trị ID vào nút xác nhận xóa trong modal
+                $('#category-select-show').attr('data-category-id', categoryId);
+
+                // thay đổi text
+                $('#category-select-show').text(categoryName);
+            });
+        });
+    </script>
+}

@@ -5,6 +5,7 @@ namespace EcommerceFashionWebsite.Areas.Admin.ViewModels
 {
     public class CreateCategoryViewModel
     {
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
 

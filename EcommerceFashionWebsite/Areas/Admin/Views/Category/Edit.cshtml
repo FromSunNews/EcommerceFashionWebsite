@@ -31,6 +31,7 @@
                                             <option value="FEMALE">@ProductType.FEMALE</option>
                                             <option value="MALE">@ProductType.MALE</option>
                                             <option value="UNISEX">@ProductType.UNISEX</option>
+                                            <option value="KID">@ProductType.KID</option>
                                         </select>
                                         <span asp-validation-for="Type" class="text-danger"></span>
                                     </div>
@@ -54,8 +55,9 @@
                                             <div class="d-flex flex-column">
                                                 <label asp-for="Image" class="form-label">Image:</label>
                                                 <div id="imagePreview"></div>
-                                                <img width="85" height="85" class="rounded img-fluid avatar-65 my-2" src="@Model.ImageURL" alt="" loading="lazy" id="image-url"/>
+                                                <img width="135" height="135" class="rounded avatar-65 my-2 object-cover" src="@Model.ImageURL" alt="" loading="lazy" id="image-url"/>
                                                 <span asp-validation-for="Image" class="text-danger mt-1"></span>
+                                                <input asp-for="ImageURL" type="hidden" />
                                                 <input asp-for="Image" type="file" class="form-control" placeholder="Image..." id="imageInput"/>
                                             </div>
                                         }
@@ -71,6 +73,8 @@
                             document.getElementById('imageInput').addEventListener('change', function (event) {
                                 var input = event.target;
                                 var imagePreview = document.getElementById('imagePreview');
+                                if (imagePreview.innerHTML !== '')
+                                    imagePreview.innerHTML = '';
 
                                 // Kiểm tra xem người dùng đã chọn hình ảnh chưa
                                 if (input.files && input.files[0]) {
@@ -79,11 +83,12 @@
                                     // Đọc hình ảnh thành dạng URL dựa trên File API
                                     reader.onload = function (e) {
                                         // Hiển thị hình ảnh trước khi tải lên
-                                        imagePreview.innerHTML = '<img src="' + e.target.result + '" class="img-preview rounded img-fluid avatar-65 my-2" width="85" height="85" />';
+                                        imagePreview.innerHTML = '<img src="' + e.target.result + '" class="img-preview rounded my-2" width="135" height="135" />';
                                     };
 
                                     // Đọc hình ảnh như một URL dựa trên File API
                                     reader.readAsDataURL(input.files[0]);
+
 
                                     $("#image-url").remove();
                                 } else {

@@ -92,6 +92,10 @@
 
 
     <!-- Hope Ui Design System Css -->
+
+    
+
+
     <link rel="stylesheet" href="~/assets/css/hope-ui.min.css?v=2.2.0" />
     <link rel="stylesheet" href="~/assets/css/pro.min.css?v=2.2.0" />
 
@@ -129,12 +133,12 @@
     <link rel="stylesheet" href="~/user/css/jquery-ui.min.css" type="text/css">
     <link rel="stylesheet" href="~/user/css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="~/user/css/style.css" type="text/css">
-
+    <link rel="stylesheet" href="~/custom/custom.css" />
 
 
 </head>
 
-<body>
+<body style="background-color: #ffffff !important;">
     
     <!-- Page Preloder -->
     <div id="preloder">
@@ -143,7 +147,8 @@
 
     <!-- Header Section Begin -->
     <header class="header-section">
-        <div class="header-top">
+
+        @* <div class="header-top">
             <div class="container">
                 <div class="ht-left">
                     <div class="mail-service">
@@ -185,10 +190,84 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> *@
+        <nav class="nav navbar navbar-expand-xl navbar-light iq-navbar header-hover-menu left-border" style="background-color: #ffffff !important;">
+            <div class="container-fluid navbar-inner">
+                <a href="../dashboard/index.html" class="navbar-brand">
+
+                    <!--Logo start-->
+                    <div class="logo-main">
+                        <div class="logo-normal">
+                            <svg class="text-primary icon-30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="-0.757324" y="19.2427" width="28" height="4" rx="2" transform="rotate(-45 -0.757324 19.2427)" fill="currentColor" />
+                                <rect x="7.72803" y="27.728" width="28" height="4" rx="2" transform="rotate(-45 7.72803 27.728)" fill="currentColor" />
+                                <rect x="10.5366" y="16.3945" width="16" height="4" rx="2" transform="rotate(45 10.5366 16.3945)" fill="currentColor" />
+                                <rect x="10.5562" y="-0.556152" width="28" height="4" rx="2" transform="rotate(45 10.5562 -0.556152)" fill="currentColor" />
+                            </svg>
+                        </div>
+                        <div class="logo-mini">
+                            <svg class="text-primary icon-30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="-0.757324" y="19.2427" width="28" height="4" rx="2" transform="rotate(-45 -0.757324 19.2427)" fill="currentColor" />
+                                <rect x="7.72803" y="27.728" width="28" height="4" rx="2" transform="rotate(-45 7.72803 27.728)" fill="currentColor" />
+                                <rect x="10.5366" y="16.3945" width="16" height="4" rx="2" transform="rotate(45 10.5366 16.3945)" fill="currentColor" />
+                                <rect x="10.5562" y="-0.556152" width="28" height="4" rx="2" transform="rotate(45 10.5562 -0.556152)" fill="currentColor" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!--logo End-->         <h4 class="logo-title d-block d-xl-none" data-setting="app_name">Hope UI</h4>
+                </a>
+                <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
+                    <i class="icon d-flex">
+                        <svg class="icon-20" width="20" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" />
+                        </svg>
+                    </i>
+                </div>
+                <div class="d-flex align-items-center justify-content-between product-offcanvas">
+                    <div class="breadcrumb-title border-end me-3 pe-3 d-none d-xl-block">
+                        <small class="mb-0 text-capitalize">Fashi.</small>
+                    </div>
+                    <div class="offcanvas offcanvas-end shadow-none iq-product-menu-responsive" tabindex="-1" id="offcanvasBottom">
+                        <div class="offcanvas-body">
+                            <div class="top-social">
+                                <a href="https://www.facebook.com/" class="admin-ui"><i class="ti-facebook px-1 admin-ui"></i></a>
+                                <a href="https://www.twitter.com" class="admin-ui"><i class="ti-twitter-alt px-1 admin-ui"></i></a>
+                                <a href="https://www.instagram.com" class="admin-ui"><i class="ti-linkedin px-1 admin-ui"></i></a>
+                                <a href="https://www.pinterest.com" class="admin-ui"><i class="ti-pinterest px-1 admin-ui"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="mb-2 navbar-nav ms-auto align-items-center navbar-list mb-lg-0">
+                        <li class="nav-item admin-ui dropdown border-end pe-3 me-3">
+                            <div class="lang-icon">
+                                    <div class="py-1 px-2 fs-6 fw-bold"> @_lang.Getkey("language") </div>
+
+                                <ul class="dropdown-menu dropdown-menu-end lang-hover" style="top: 40px; right: 0; cursor: pointer;">
+                                    <li>
+                                        <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="en-US" class="dropdown-item">
+                                            <i class="flag-icon flag-icon-gb"></i> English
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a asp-controller="Home" asp-action="ChangeLanguage" asp-route-culture="vi-VN" class="dropdown-item">
+                                            <i class="flag-icon flag-icon-gb"></i> Tiếng Việt
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <partial name="_LoginPartial" />
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
         <div class="container">
             <div class="inner-header">
-                <div class="row">
+                <div class="row d-flex flex-row align-items-center">
                     <div class="col-lg-2 col-md-2">
                         <div class="logo">
                             <a href="#">
@@ -198,11 +277,25 @@
                     </div>
                     <div class="col-lg-7 col-md-7">
                         <div class="advanced-search">
-                            <button type="button" class="category-btn">@_lang.Getkey("all_categories")</button>
+                            <button type="button" class="category-btn">
+                                <div id="category-select-show">@_lang.Getkey("all_categories")</div>
+                                <vc:all-category></vc:all-category>
+                            </button>
+
+
                             <div class="input-group">
-                                <input type="text" placeholder="@_lang.Getkey("title_search")">
+                                <form id="searchForm">
+                                    <input type="text" placeholder="@_lang.Getkey("title_search")" id="searchInput">
+                                </form>
+
+                                <div class="search-result-modal position-absolute p-2 shadow-lg bg-white rounded py-2 px-3" id="searchResults">
+                                    
+                                </div>
+
                                 <button type="button"><i class="ti-search"></i></button>
+
                             </div>
+
                         </div>
                     </div>
                     <partial name="_CartPartial" />
@@ -215,15 +308,8 @@
                     <div class="depart-btn">
                         <i class="ti-menu"></i>
                         <span>@_lang.Getkey("all_departments")</span>
-                        <ul class="depart-hover">
-                            <li class="active"><a href="#">@_lang.Getkey("womens_clothing")</a></li>
-                            <li><a href="#">@_lang.Getkey("mens_clothing")</a></li>
-                            <li><a href="#">@_lang.Getkey("underwear")</a></li>
-                            <li><a href="#">@_lang.Getkey("kids_clothing")</a></li>
-                            <li><a href="#">@_lang.Getkey("brand_fashion")</a></li>
-                            <li><a href="#">@_lang.Getkey("accessories_shoes")</a></li>
-                            <li><a href="#">@_lang.Getkey("luxury_brands")</a></li>
-                            <li><a href="#">@_lang.Getkey("brand_outdoor")</a></li>
+                        <ul class="depart-hover py-3 ">
+                            <vc:category></vc:category>
                         </ul>
                     </div>
                 </div>
@@ -433,7 +519,61 @@
     <script src="~/user/js/site.js" asp-append-version="true"></script>
     <script src="~/user/js/site.js" asp-append-version="true"></script>
 
-    
+
+    <script>
+        var timer;
+        var searchInput = document.getElementById('searchInput');
+        var searchResultsDiv = document.getElementById('searchResults');
+
+        searchInput.addEventListener('input', function () {
+            clearTimeout(timer);
+            timer = setTimeout(function () {
+                var searchQuery = searchInput.value;
+                console.log("searchQuery", searchQuery);
+                if (searchQuery.length >= 1) {
+                    // Gửi yêu cầu tìm kiếm đến controller
+                    var categoryId = $("category-select-show").data('category-id');
+                    fetch('/User/Product/Search?query=' + searchQuery + '&categoryId=' + categoryId)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log("data", data)
+                            // Hiển thị kết quả tìm kiếm
+                            var resultsHtml = '';
+                            var maxLength = 70; // Số ký tự tối đa bạn muốn hiển thị
+                            if (data && data.length > 0) {
+                                data.forEach(product => {
+                                    var nameLimited = product.name;
+                                    if (product.name.length > maxLength) {
+                                        nameLimited = product.name.substring(0, maxLength) + "...";
+                                    };
+                                    resultsHtml += `<div class="result-item d-flex flex-row p-2 border-bottom">
+                                        <img width="75" height="75" class="rounded me-3" src="${product.urlImage}" alt="" loading="lazy" />
+                <div class="d-flexjustify-content-between flex-column">
+                                                                    <a href="/User/Product/Detail/${product.id}" class="h6 iq-product-detail mb-0" id="productDescription">${nameLimited}</a>
+                    <div class="d-flex align-items-center" style="margin-bottom: -3px !important;">
+                        <svg class="icon-24" xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" fill="none">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.1043 4.17701L14.9317 7.82776C15.1108 8.18616 15.4565 8.43467 15.8573 8.49218L19.9453 9.08062C20.9554 9.22644 21.3573 10.4505 20.6263 11.1519L17.6702 13.9924C17.3797 14.2718 17.2474 14.6733 17.3162 15.0676L18.0138 19.0778C18.1856 20.0698 17.1298 20.8267 16.227 20.3574L12.5732 18.4627C12.215 18.2768 11.786 18.2768 11.4268 18.4627L7.773 20.3574C6.87023 20.8267 5.81439 20.0698 5.98724 19.0778L6.68385 15.0676C6.75257 14.6733 6.62033 14.2718 6.32982 13.9924L3.37368 11.1519C2.64272 10.4505 3.04464 9.22644 4.05466 9.08062L8.14265 8.49218C8.54354 8.43467 8.89028 8.18616 9.06937 7.82776L10.8957 4.17701C11.3477 3.27433 12.6523 3.27433 13.1043 4.17701Z" fill="#FFD329" />
+                        </svg>
+                                                <p class="mb-0">${product.starRating} Rating</p>
+                    </div>
+                </div>
+            </div>`
+                                });
+                                searchResultsDiv.innerHTML = resultsHtml;
+                            }
+
+                        })
+                        .catch(error => {
+                            console.error('Lỗi khi gửi yêu cầu tìm kiếm: ' + error);
+                        });
+                } else {
+                    // Xóa kết quả tìm kiếm khi không có từ khóa
+                    searchResultsDiv.innerHTML = '';
+                }
+            }, 1000); // Đợi 1 giây sau khi người dùng dừng viết để gửi yêu cầu tìm kiếm
+        });
+    </script>
+
     <script>
         var currentUrl = window.location.pathname.replace(/^\/User\//, '').toLowerCase();
         console.log("currentUrl", currentUrl);

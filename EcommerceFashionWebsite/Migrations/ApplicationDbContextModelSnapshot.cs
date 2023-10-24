@@ -95,8 +95,7 @@ namespace EcommerceFashionWebsite.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId")
-                        .IsUnique();
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("ProductId");
 
@@ -153,15 +152,13 @@ namespace EcommerceFashionWebsite.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Desc")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Features")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Introduction")
-                        .HasColumnType("int");
+                    b.Property<string>("Introduction")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsLiked")
                         .HasColumnType("bit");
@@ -182,15 +179,13 @@ namespace EcommerceFashionWebsite.Migrations
                     b.Property<int?>("ProductInfoId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Size")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Sizes")
+                        .HasColumnType("int");
 
                     b.Property<int>("StarRating")
                         .HasColumnType("int");
 
                     b.Property<string>("Tags")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -467,8 +462,8 @@ namespace EcommerceFashionWebsite.Migrations
             modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductCategoryModel", b =>
                 {
                     b.HasOne("EcommerceFashionWebsite.Models.CategoryModel", "Category")
-                        .WithOne("ProductCategory")
-                        .HasForeignKey("EcommerceFashionWebsite.Models.ProductCategoryModel", "CategoryId")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -548,11 +543,6 @@ namespace EcommerceFashionWebsite.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("EcommerceFashionWebsite.Models.CategoryModel", b =>
-                {
-                    b.Navigation("ProductCategory");
                 });
 
             modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductModel", b =>
