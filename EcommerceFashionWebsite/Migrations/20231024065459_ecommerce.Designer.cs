@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EcommerceFashionWebsite.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231021094453_update")]
-    partial class update
+    [Migration("20231024065459_ecommerce")]
+    partial class ecommerce
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,36 @@ namespace EcommerceFashionWebsite.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.CartModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserModelId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserModelId");
+
+                    b.ToTable("CartModel");
+                });
 
             modelBuilder.Entity("EcommerceFashionWebsite.Models.CategoryModel", b =>
                 {
@@ -98,8 +128,7 @@ namespace EcommerceFashionWebsite.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId")
-                        .IsUnique();
+                    b.HasIndex("CategoryId");
 
                     b.HasIndex("ProductId");
 
@@ -456,6 +485,23 @@ namespace EcommerceFashionWebsite.Migrations
                     b.HasDiscriminator().HasValue("UserModel");
                 });
 
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.CartModel", b =>
+                {
+                    b.HasOne("EcommerceFashionWebsite.Models.ProductModel", "ProductModel")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceFashionWebsite.Models.UserModel", "UserModel")
+                        .WithMany()
+                        .HasForeignKey("UserModelId");
+
+                    b.Navigation("ProductModel");
+
+                    b.Navigation("UserModel");
+                });
+
             modelBuilder.Entity("EcommerceFashionWebsite.Models.ImageModel", b =>
                 {
                     b.HasOne("EcommerceFashionWebsite.Models.ProductModel", null)
@@ -466,8 +512,8 @@ namespace EcommerceFashionWebsite.Migrations
             modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductCategoryModel", b =>
                 {
                     b.HasOne("EcommerceFashionWebsite.Models.CategoryModel", "Category")
-                        .WithOne("ProductCategory")
-                        .HasForeignKey("EcommerceFashionWebsite.Models.ProductCategoryModel", "CategoryId")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -547,11 +593,6 @@ namespace EcommerceFashionWebsite.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("EcommerceFashionWebsite.Models.CategoryModel", b =>
-                {
-                    b.Navigation("ProductCategory");
                 });
 
             modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductModel", b =>

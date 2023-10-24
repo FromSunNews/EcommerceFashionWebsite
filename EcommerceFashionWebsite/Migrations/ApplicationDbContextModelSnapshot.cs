@@ -22,6 +22,36 @@ namespace EcommerceFashionWebsite.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.CartModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserModelId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserModelId");
+
+                    b.ToTable("CartModel");
+                });
+
             modelBuilder.Entity("EcommerceFashionWebsite.Models.CategoryModel", b =>
                 {
                     b.Property<int>("Id")
@@ -450,6 +480,23 @@ namespace EcommerceFashionWebsite.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("UserModel");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.CartModel", b =>
+                {
+                    b.HasOne("EcommerceFashionWebsite.Models.ProductModel", "ProductModel")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceFashionWebsite.Models.UserModel", "UserModel")
+                        .WithMany()
+                        .HasForeignKey("UserModelId");
+
+                    b.Navigation("ProductModel");
+
+                    b.Navigation("UserModel");
                 });
 
             modelBuilder.Entity("EcommerceFashionWebsite.Models.ImageModel", b =>
