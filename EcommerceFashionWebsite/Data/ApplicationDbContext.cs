@@ -26,6 +26,8 @@ namespace EcommerceFashionWebsite.Data
         public DbSet<ReviewModel> ReviewModel { get; set; }
         // =========================================
         public DbSet<UserModel> UserModel { get; set; } 
+        //==========================================
+        public DbSet<CartModel> CartModel { get; set; }
 
 
         public DbSet<ProductInfoModel> ProductInfoModel { get; set; }

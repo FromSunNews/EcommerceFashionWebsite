@@ -1,12 +1,13 @@
 ﻿@{
     ViewData["Title"] = "Product";
 }
-
 @using EcommerceFashionWebsite.Areas.Admin.ViewModels;
 @model ProductViewModel;
 @using EcommerceFashionWebsite.Extensions;
 
-<section class="product-shop spad page-details">
+<form method="post">
+    <input asp-for="@Model.ProductId" type="hidden" />
+<section class="product-shop spad page-details">    
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -111,9 +112,10 @@
                     </div>
                     <div class="quantity">
                         <div class="pro-qty">
-                            <input type="text" value="1">
+                                <input type="text" asp-for="@Model.Quantity" value="@Model.Quantity">
                         </div>
-                        <a href="#" class="primary-btn pd-cart">Add To Cart</a>
+                            <button type="submit" class="primary-btn pd-cart" >Add To Cart</button>
+       
                     </div>
                     <ul class="pd-tags">
 
@@ -441,3 +443,4 @@
         }
     });
 </script>
+</form>

@@ -2,10 +2,12 @@
 using EcommerceFashionWebsite.Data;
 using EcommerceFashionWebsite.Models;
 using EcommerceFashionWebsite.ViewComponentsModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace EcommerceFashionWebsite.Areas.User.Controllers
 {
@@ -84,6 +86,28 @@ namespace EcommerceFashionWebsite.Areas.User.Controllers
             return View(product);
         }
 
+        [HttpPost]
+        [Authorize]
+        public IActionResult Detail(ProductViewModel productViewModel)
+        {
+            var identity = (ClaimsIdentity)User.Identity;
+            var claim = identity.FindFirst(ClaimTypes.NameIdentifier);
+
+            CartModel cartModel = new CartModel()
+            {
+                ProductId = productViewModel.ProductId,
+                Quantity = productViewModel.Quantity,
+                ApplicationUserId = claim.Value
+            };
+
+            //Them san pham vao gio hang
+            _db.CartModel.Add(cartModel);
+            _db.SaveChanges();
+
+            return Json(new { success = true });
+
+        }
+
         public IActionResult Search(string query, int categoryId)
         {
             if (categoryId != 0)
@@ -108,7 +132,7 @@ namespace EcommerceFashionWebsite.Areas.User.Controllers
             } else
             {
                 var products = _db.ProductModel
-                                       .Where(p => p.Name.toLower().Contains(query))
+                                       .Where(p => p.Name.Contains(query))
                                        .Select(p => new SearchResultModel
                                        {
                                            Id = p.Id,

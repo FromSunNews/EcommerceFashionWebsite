@@ -1,4 +1,6 @@
 ﻿using EcommerceFashionWebsite.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EcommerceFashionWebsite.Areas.Admin.ViewModels
 {
@@ -21,5 +23,8 @@ namespace EcommerceFashionWebsite.Areas.Admin.ViewModels
 
         public ICollection<ProductViewModel>? RelatedProducts { get; set; }
         public int StarRating { get; set; }
+        public int Quantity { get; set; } = 1;
+
     }
+
 }

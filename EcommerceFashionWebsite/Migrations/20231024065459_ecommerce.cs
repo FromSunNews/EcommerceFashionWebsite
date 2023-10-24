@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EcommerceFashionWebsite.Migrations
 {
     /// <inheritdoc />
-    public partial class update : Migration
+    public partial class ecommerce : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -228,6 +228,33 @@ namespace EcommerceFashionWebsite.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CartModel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UserModelId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CartModel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CartModel_AspNetUsers_UserModelId",
+                        column: x => x.UserModelId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_CartModel_ProductModel_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "ProductModel",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ImageModel",
                 columns: table => new
                 {
@@ -336,6 +363,16 @@ namespace EcommerceFashionWebsite.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CartModel_ProductId",
+                table: "CartModel",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CartModel_UserModelId",
+                table: "CartModel",
+                column: "UserModelId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ImageModel_ProductModelId",
                 table: "ImageModel",
                 column: "ProductModelId");
@@ -343,8 +380,7 @@ namespace EcommerceFashionWebsite.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_ProductCategoryModel_CategoryId",
                 table: "ProductCategoryModel",
-                column: "CategoryId",
-                unique: true);
+                column: "CategoryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductCategoryModel_ProductId",
@@ -379,6 +415,9 @@ namespace EcommerceFashionWebsite.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "CartModel");
 
             migrationBuilder.DropTable(
                 name: "ImageModel");
