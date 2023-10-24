@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EcommerceFashionWebsite.Migrations
 {
     /// <inheritdoc />
-    public partial class bcv : Migration
+    public partial class update : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -61,7 +61,10 @@ namespace EcommerceFashionWebsite.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Type = table.Column<int>(type: "int", nullable: false),
-                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    urlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    publicIdImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Desc = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -74,14 +77,14 @@ namespace EcommerceFashionWebsite.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IdealFor = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    StyleCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ColorCode = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Material = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IdealFor = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StyleCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ColorCode = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Material = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Waterproof = table.Column<bool>(type: "bit", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Manufacturer = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Manufacturer = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -203,15 +206,15 @@ namespace EcommerceFashionWebsite.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsLiked = table.Column<bool>(type: "bit", nullable: false),
                     StarRating = table.Column<int>(type: "int", nullable: false),
-                    Desc = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Desc = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PriceApply = table.Column<float>(type: "real", nullable: false),
                     PriceOrigin = table.Column<float>(type: "real", nullable: false),
-                    Size = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Sizes = table.Column<int>(type: "int", nullable: false),
                     NumberInStock = table.Column<int>(type: "int", nullable: false),
-                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Introduction = table.Column<int>(type: "int", nullable: false),
-                    Features = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ProductInfoId = table.Column<int>(type: "int", nullable: false),
+                    Tags = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Introduction = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Features = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProductInfoId = table.Column<int>(type: "int", nullable: true),
                     Colors = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
@@ -221,8 +224,7 @@ namespace EcommerceFashionWebsite.Migrations
                         name: "FK_ProductModel_ProductInfoModel_ProductInfoId",
                         column: x => x.ProductInfoId,
                         principalTable: "ProductInfoModel",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(

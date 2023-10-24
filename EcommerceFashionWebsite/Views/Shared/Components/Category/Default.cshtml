@@ -1,0 +1,54 @@
+﻿@using EcommerceFashionWebsite.ViewComponentsModel;
+
+@model CategoryViewComponentModel
+
+@{
+    <li class="depart-item d-flex flex-row justify-content-between align-items-center">
+        <a  asp-controller="Shop" asp-area="User" asp-route-Type="@ProductType.MALE" class="py-2">@ProductType.MALE</a>
+        <i class="ti-angle-right px-3" style="font-size: 16px; color: black;"></i>
+            <ul class="depart-item-hover py-3 shadow">
+        @foreach (var category in Model.CategoriesWomen)
+        {
+                <li>
+                    <a  asp-controller="Shop" asp-area="User" asp-route-CategoryId="@category.Id" class="py-2 px-5">@category.Name</a>
+                </li>
+        }
+            </ul>
+    </li>
+    <li class="depart-item d-flex flex-row justify-content-between align-items-center">
+        <a  asp-controller="Shop" asp-area="User" asp-route-Type="@ProductType.FEMALE" class="py-2">@ProductType.FEMALE</a>
+        <i class="ti-angle-right px-3" style="font-size: 16px; color: black;"></i>
+        <ul class="depart-item-hover py-3 shadow">
+            @foreach (var category in Model.CategoriesWomen)
+            {
+                <li>
+                    <a  asp-controller="Shop" asp-area="User" asp-route-CategoryId="@category.Id" class="py-2 px-5">@category.Name</a>
+                </li>
+            }
+        </ul>
+    </li>
+    <li class="depart-item d-flex flex-row justify-content-between align-items-center">
+        <a  asp-controller="Shop" asp-area="User" asp-route-Type="@ProductType.UNISEX" class="py-2">@ProductType.UNISEX</a>
+        <i class="ti-angle-right px-3" style="font-size: 16px; color: black;"></i>
+        <ul class="depart-item-hover py-3 shadow">
+            @foreach (var category in Model.CategoriesUnisex)
+            {
+                <li>
+                    <a  asp-controller="Shop" asp-area="User" asp-route-CategoryId="@category.Id" class="py-2 px-5">@category.Name</a>
+                </li>
+            }
+        </ul>
+    </li>
+    <li class="depart-item d-flex flex-row justify-content-between align-items-center">
+        <a  asp-controller="Shop" asp-area="User" asp-route-Type="@ProductType.KID" class="py-2">@ProductType.KID</a>
+        <i class="ti-angle-right px-3" style="font-size: 16px; color: black;"></i>
+        <ul class="depart-item-hover py-3 shadow">
+            @foreach (var category in Model.CategoriesKid)
+            {
+                <li>
+                    <a  asp-controller="Shop" asp-area="User" asp-route-CategoryId="@category.Id" class="py-2 px-5">@category.Name</a>
+                </li>
+            }
+        </ul>
+    </li>
+}

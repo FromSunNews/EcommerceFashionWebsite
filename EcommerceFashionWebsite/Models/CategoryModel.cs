@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System.ComponentModel.DataAnnotations;
 
 namespace EcommerceFashionWebsite.Models
 {
@@ -17,13 +18,13 @@ namespace EcommerceFashionWebsite.Models
         public string? publicIdImage { get; set; }
         public string? Desc { get; set; }
 
-        public virtual ProductCategoryModel? ProductCategory { get; set; }
     }
 
     public enum ProductType
     {
         FEMALE,
         MALE,
-        UNISEX
+        UNISEX,
+        KID
     }
 }

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Add Product";
+    ViewData["Title"] = "Edit Product";
 }
 @using EcommerceFashionWebsite.Areas.Admin.ViewModels;
 @model CreateProductViewModel;
@@ -10,7 +10,7 @@
                 <div class="card">
                     <div class="card-header d-flex justify-content-between">
                         <div class="header-title">
-                            <h4 class="card-title">Add Product</h4>
+                            <h4 class="card-title">Edit Product</h4>
                         </div>
                     </div>
                     <div class="card-body">
@@ -64,7 +64,7 @@
 
                                     <div class="form-group col-md-6">
                                         <label class="form-label" asp-for="Colors">Colors</label>
-                                        <input type="color" class="form-control" asp-for="Colors" value="#456575">
+                                        <input type="color" class="form-control" asp-for="Colors" value="@Model.Colors">
                                         <span asp-validation-for="Colors" class="text-danger"></span>
                                     </div>
 
@@ -77,28 +77,46 @@
 
                                     <div class="form-group col-md-6">
                                         <label class="form-label" asp-for="NumberInStock">NumberInStock</label>
-                                        <input type="number" class="form-control" asp-for="NumberInStock" value="0">
+                                        <input type="number" class="form-control" asp-for="NumberInStock" value="@Model.NumberInStock">
                                         <span asp-validation-for="NumberInStock" class="text-danger mt-1"></span>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label class="form-label" asp-for="PriceOrigin">PriceOrigin</label>
-                                        <input type="number" class="form-control" asp-for="PriceOrigin" value="0">
+                                        <input type="number" class="form-control" asp-for="PriceOrigin" value="@Model.PriceOrigin">
                                         <span asp-validation-for="PriceOrigin" class="text-danger mt-1"></span>
                                     </div>
 
                                     <div class="form-group col-md-6">
                                         <label class="form-label" asp-for="PriceApply">PriceApply</label>
-                                        <input type="number" class="form-control" asp-for="PriceApply" value="0">
+                                        <input type="number" class="form-control" asp-for="PriceApply" value="@Model.PriceApply">
                                         <span asp-validation-for="PriceApply" class="text-danger mt-1"></span>
                                     </div>
 
 
                                     <div class="form-group">
+                                        @if (Model.ImageUrls == null)
+                                        {
+                                            <label asp-for="Images" class="form-label">Images:</label>
+                                            <div id="imagePreview"></div>
+                                            <input asp-for="ImageUrls" type="hidden" />
+                                            <input asp-for="Images" id="images-upload" type="file" class="form-control" placeholder="Images..." multiple="multiple" accept="image/jpeg, image/png, image/jpg" />
+                                            <span asp-validation-for="Images" class="text-danger mt-1"></span>
+                                        }
+                                        else
+                                        {
                                         <label asp-for="Images" class="form-label">Images:</label>
                                         <div id="imagePreview"></div>
-                                        <input asp-for="Images" id="images-upload" type="file" class="form-control" placeholder="Images..." multiple="multiple" accept="image/jpeg, image/png, image/jpg"/>
+                                            <div class="d-flex flex-row flex-wrap gap-3" id="image-urls">
+                                            @foreach (var imgUrl in Model.ImageUrls)
+                                            {
+                                                <img width="135" height="135" class="rounded my-2 object-cover" src="@imgUrl" alt="" loading="lazy" />
+                                            }
+                                        </div>
+                                        <input asp-for="Images" id="images-upload" type="file" class="form-control" placeholder="Images..." multiple="multiple" accept="image/jpeg, image/png, image/jpg" />
                                         <span asp-validation-for="Images" class="text-danger mt-1"></span>
+                                            
+                                        }
                                     </div>
 
                                     <script>
@@ -127,6 +145,7 @@
                                                     // Đọc hình ảnh như một URL dựa trên File API
                                                     reader.readAsDataURL(files[i]);
                                                 }
+                                                $("#image-urls").remove();
                                             } else {
                                                 // Nếu không có hình ảnh được chọn, xóa hình ảnh xem trước
                                                 imagePreview.innerHTML = '';
@@ -135,7 +154,7 @@
                                     </script>
 
                                 </div>
-                                <button type="submit" class="btn btn-primary mt-3">Add</button>
+                                <button type="submit" class="btn btn-primary mt-3">Edit</button>
                             </form>
                         </div>
                     </div>
