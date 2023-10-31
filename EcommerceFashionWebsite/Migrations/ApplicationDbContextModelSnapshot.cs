@@ -22,6 +22,34 @@ namespace EcommerceFashionWebsite.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.AdditionalServiceModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("InvoiceId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InvoiceModelId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InvoiceModelId");
+
+                    b.ToTable("AdditionalServiceModel");
+                });
+
             modelBuilder.Entity("EcommerceFashionWebsite.Models.CartModel", b =>
                 {
                     b.Property<int>("Id")
@@ -32,7 +60,7 @@ namespace EcommerceFashionWebsite.Migrations
 
                     b.Property<string>("ApplicationUserId")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -40,14 +68,11 @@ namespace EcommerceFashionWebsite.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserModelId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ApplicationUserId");
 
-                    b.HasIndex("UserModelId");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("CartModel");
                 });
@@ -107,6 +132,75 @@ namespace EcommerceFashionWebsite.Migrations
                     b.HasIndex("ProductModelId");
 
                     b.ToTable("ImageModel");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.InvoiceDetailModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("InvoiceId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InvoiceId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("InvoiceDetailModel");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.InvoiceModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("DeliveryMethod")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("OrderStatus")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("InvoiceModel");
                 });
 
             modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductCategoryModel", b =>
@@ -482,17 +576,26 @@ namespace EcommerceFashionWebsite.Migrations
                     b.HasDiscriminator().HasValue("UserModel");
                 });
 
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.AdditionalServiceModel", b =>
+                {
+                    b.HasOne("EcommerceFashionWebsite.Models.InvoiceModel", null)
+                        .WithMany("AdditionalServiceModels")
+                        .HasForeignKey("InvoiceModelId");
+                });
+
             modelBuilder.Entity("EcommerceFashionWebsite.Models.CartModel", b =>
                 {
+                    b.HasOne("EcommerceFashionWebsite.Models.UserModel", "UserModel")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("EcommerceFashionWebsite.Models.ProductModel", "ProductModel")
                         .WithMany()
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("EcommerceFashionWebsite.Models.UserModel", "UserModel")
-                        .WithMany()
-                        .HasForeignKey("UserModelId");
 
                     b.Navigation("ProductModel");
 
@@ -504,6 +607,36 @@ namespace EcommerceFashionWebsite.Migrations
                     b.HasOne("EcommerceFashionWebsite.Models.ProductModel", null)
                         .WithMany("Images")
                         .HasForeignKey("ProductModelId");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.InvoiceDetailModel", b =>
+                {
+                    b.HasOne("EcommerceFashionWebsite.Models.InvoiceModel", "InvoiceModel")
+                        .WithMany()
+                        .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EcommerceFashionWebsite.Models.ProductModel", "ProductModel")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("InvoiceModel");
+
+                    b.Navigation("ProductModel");
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.InvoiceModel", b =>
+                {
+                    b.HasOne("EcommerceFashionWebsite.Models.UserModel", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductCategoryModel", b =>
@@ -590,6 +723,11 @@ namespace EcommerceFashionWebsite.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("EcommerceFashionWebsite.Models.InvoiceModel", b =>
+                {
+                    b.Navigation("AdditionalServiceModels");
                 });
 
             modelBuilder.Entity("EcommerceFashionWebsite.Models.ProductModel", b =>

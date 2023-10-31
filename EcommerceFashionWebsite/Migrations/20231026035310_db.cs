@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EcommerceFashionWebsite.Migrations
 {
     /// <inheritdoc />
-    public partial class ecommerce : Migration
+    public partial class db : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -198,6 +198,32 @@ namespace EcommerceFashionWebsite.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "InvoiceModel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Total = table.Column<double>(type: "float", nullable: false),
+                    OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    OrderStatus = table.Column<int>(type: "int", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DeliveryMethod = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InvoiceModel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_InvoiceModel_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductModel",
                 columns: table => new
                 {
@@ -228,6 +254,27 @@ namespace EcommerceFashionWebsite.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AdditionalServiceModel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    InvoiceId = table.Column<int>(type: "int", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Price = table.Column<double>(type: "float", nullable: false),
+                    InvoiceModelId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AdditionalServiceModel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_AdditionalServiceModel_InvoiceModel_InvoiceModelId",
+                        column: x => x.InvoiceModelId,
+                        principalTable: "InvoiceModel",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CartModel",
                 columns: table => new
                 {
@@ -235,17 +282,17 @@ namespace EcommerceFashionWebsite.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ProductId = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    ApplicationUserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    UserModelId = table.Column<string>(type: "nvarchar(450)", nullable: true)
+                    ApplicationUserId = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CartModel", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CartModel_AspNetUsers_UserModelId",
-                        column: x => x.UserModelId,
+                        name: "FK_CartModel_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
                         principalTable: "AspNetUsers",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_CartModel_ProductModel_ProductId",
                         column: x => x.ProductId,
@@ -272,6 +319,33 @@ namespace EcommerceFashionWebsite.Migrations
                         column: x => x.ProductModelId,
                         principalTable: "ProductModel",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "InvoiceDetailModel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    InvoiceId = table.Column<int>(type: "int", nullable: false),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
+                    Quantity = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_InvoiceDetailModel", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_InvoiceDetailModel_InvoiceModel_InvoiceId",
+                        column: x => x.InvoiceId,
+                        principalTable: "InvoiceModel",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_InvoiceDetailModel_ProductModel_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "ProductModel",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -324,6 +398,11 @@ namespace EcommerceFashionWebsite.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_AdditionalServiceModel_InvoiceModelId",
+                table: "AdditionalServiceModel",
+                column: "InvoiceModelId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
                 column: "RoleId");
@@ -363,19 +442,34 @@ namespace EcommerceFashionWebsite.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
+                name: "IX_CartModel_ApplicationUserId",
+                table: "CartModel",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_CartModel_ProductId",
                 table: "CartModel",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_CartModel_UserModelId",
-                table: "CartModel",
-                column: "UserModelId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_ImageModel_ProductModelId",
                 table: "ImageModel",
                 column: "ProductModelId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InvoiceDetailModel_InvoiceId",
+                table: "InvoiceDetailModel",
+                column: "InvoiceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InvoiceDetailModel_ProductId",
+                table: "InvoiceDetailModel",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InvoiceModel_ApplicationUserId",
+                table: "InvoiceModel",
+                column: "ApplicationUserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductCategoryModel_CategoryId",
@@ -402,6 +496,9 @@ namespace EcommerceFashionWebsite.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "AdditionalServiceModel");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
             migrationBuilder.DropTable(
@@ -423,6 +520,9 @@ namespace EcommerceFashionWebsite.Migrations
                 name: "ImageModel");
 
             migrationBuilder.DropTable(
+                name: "InvoiceDetailModel");
+
+            migrationBuilder.DropTable(
                 name: "ProductCategoryModel");
 
             migrationBuilder.DropTable(
@@ -432,13 +532,16 @@ namespace EcommerceFashionWebsite.Migrations
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "InvoiceModel");
 
             migrationBuilder.DropTable(
                 name: "CategoryModel");
 
             migrationBuilder.DropTable(
                 name: "ProductModel");
+
+            migrationBuilder.DropTable(
+                name: "AspNetUsers");
 
             migrationBuilder.DropTable(
                 name: "ProductInfoModel");

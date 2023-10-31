@@ -1,6 +1,7 @@
 ﻿using EcommerceFashionWebsite.Data;
 using EcommerceFashionWebsite.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace EcommerceFashionWebsite.Areas.User.Controllers
 {
@@ -13,18 +14,89 @@ namespace EcommerceFashionWebsite.Areas.User.Controllers
         {
             _db = db;
         }
-        [HttpGet]
-        public IActionResult Details(int ProductId)
 
+        public IActionResult Index()
         {
-            CartModel cart = new CartModel()
-            {
-                ProductId = ProductId,
-                ProductModel = _db.ProductModel.Where(p => p.Id == ProductId).FirstOrDefault(),
-                Quantity = 1
+            return View();
+        }
 
-            };
-            return View(cart);
+        [HttpPost]
+        public IActionResult Delete(int cartId)
+        {
+            if (cartId != 0)
+            {
+                var identity = (ClaimsIdentity)User.Identity;
+                var claim = identity.FindFirst(ClaimTypes.NameIdentifier);
+                // check cartId
+                var exsistCart = _db.CartModel.Where(c => c.Id == cartId && c.ApplicationUserId == claim.Value).SingleOrDefault();
+                if (exsistCart != null)
+                {
+                    _db.CartModel.Remove(exsistCart);
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    return Json(new { success = false });
+                }
+                return Json(new { success = true });
+            } else
+            {
+                return Json(new { success = false });
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Increase(int cartId)
+        {
+            if (cartId != 0)
+            {
+                var identity = (ClaimsIdentity)User.Identity;
+                var claim = identity.FindFirst(ClaimTypes.NameIdentifier);
+                // check cartId
+                var exsistCart = _db.CartModel.Where(c => c.Id == cartId && c.ApplicationUserId == claim.Value).SingleOrDefault();
+                if (exsistCart != null)
+                {
+                    exsistCart.Quantity += 1;
+                    _db.CartModel.Update(exsistCart);
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    return Json(new { success = false });
+                }
+                return Json(new { success = true });
+            }
+            else
+            {
+                return Json(new { success = false });
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Decrease(int cartId)
+        {
+            if (cartId != 0)
+            {
+                var identity = (ClaimsIdentity)User.Identity;
+                var claim = identity.FindFirst(ClaimTypes.NameIdentifier);
+                // check cartId
+                var exsistCart = _db.CartModel.Where(c => c.Id == cartId && c.ApplicationUserId == claim.Value).SingleOrDefault();
+                if (exsistCart != null)
+                {
+                    exsistCart.Quantity -= 1;
+                    _db.CartModel.Update(exsistCart);
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    return Json(new { success = false });
+                }
+                return Json(new { success = true });
+            }
+            else
+            {
+                return Json(new { success = false });
+            }
         }
     }
 }

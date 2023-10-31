@@ -5,9 +5,8 @@
 @model ProductViewModel;
 @using EcommerceFashionWebsite.Extensions;
 
-<form method="post">
-    <input asp-for="@Model.ProductId" type="hidden" />
-<section class="product-shop spad page-details">    
+<section class="product-shop spad page-details">
+    <input asp-for="@Model.ProductId" type="hidden" id="product-id"/>
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -112,10 +111,9 @@
                     </div>
                     <div class="quantity">
                         <div class="pro-qty">
-                                <input type="text" asp-for="@Model.Quantity" value="@Model.Quantity">
+                            <input type="text" asp-for="@Model.Quantity" value="@Model.Quantity" id="quantity-input">
                         </div>
-                            <button type="submit" class="primary-btn pd-cart" >Add To Cart</button>
-       
+                        <button class="primary-btn pd-cart" id="cart-btn">Add To Cart</button>
                     </div>
                     <ul class="pd-tags">
 
@@ -443,4 +441,45 @@
         }
     });
 </script>
-</form>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+
+            $("#cart-btn").on("click", function () {
+                var quantity = $('#quantity-input').val();
+                var productId = $('#product-id').val();
+                $.ajax({
+                    url: '/User/Product/Detail', // Đường dẫn đến hàm Detail trong controller Product
+                    type: 'POST', // Phương thức HTTP (POST hoặc GET)
+                    data: {
+                        quantity: quantity,
+                        productId: productId
+                    },
+                    success: function (response) {
+                        // Xử lý kết quả trả về từ hàm Detail ở đây (nếu cần)
+                        //thay đổi số lượng tỏng giỏ hàng
+                        console.log("response", response)
+                        
+                        swal({
+                            title: 'Thành công!',
+                            text: 'Sản phẩm của bạn đã được thêm vào giỏ hàng.',
+                            icon: "success",
+                        }).then((result) => {
+                            location.reload();
+                        })
+
+                    },
+                    error: function (error) {
+                        // Xử lý lỗi nếu có
+                        swal({
+                            title: 'Thất bại!',
+                            text: 'Sản phẩm của bạn chưa được thêm vào giỏ hàng.',
+                            icon: 'warning'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}

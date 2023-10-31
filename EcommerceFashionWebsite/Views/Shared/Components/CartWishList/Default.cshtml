@@ -1,0 +1,90 @@
+﻿@using EcommerceFashionWebsite.ViewComponentsModel;
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager;
+@inject UserManager<IdentityUser> UserManager;
+@using EcommerceFashionWebsite.Extensions;
+@model CartWishListModel
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="col-lg-3 text-right col-md-3">
+        <ul class="nav-right">
+            <li class="heart-icon">
+                <a href="~/User/LikedList">
+                    <i class="icon_heart_alt"></i>
+                    <span>@Model.NumberWishList</span>
+                </a>
+            </li>
+                @if (@Model.CartModels.Count == 0)
+                {
+                <li class="cart-icon">
+                    <a href="~/User/Cart">
+                        <i class="icon_bag_alt"></i>
+                    </a>
+                </li>
+                } else
+                {
+                    <li class="cart-icon">
+                        <a href="~/User/Cart">
+                            <i class="icon_bag_alt"></i>
+                            <span id="cart-count">@Model.CartModels.Count</span>
+                        </a>
+                        <div class="cart-hover rounded">
+                            <div class="select-items">
+                                <table>
+                                    <tbody>
+                                    @foreach (var cart in Model.CartModels)
+                                    {
+                                        <tr class="d-flex flex-row align-items-center pb-3">
+                                                <td class="si-pic" style="padding-bottom: 0px !important;"><img height="65" width="65" class="rounded" src="@cart.ProductModel.Images.FirstOrDefault().ImageUrl" alt=""></td>
+                                            <td class="si-text" style="padding-left: 20px !important; padding-bottom: 0px !important; flex: 1 !important;">
+                                                <div class="product-selected">
+                                                        <p>@(new FormatHandle().FormatNumber((int)cart.ProductModel.PriceApply)) đ x @cart.Quantity</p>
+                                                        @if(cart.ProductModel.Name.Length > 25)
+                                                        {
+                                                            <h6 id="productDescription">@cart.ProductModel.Name.Substring(0, 25)...</h6>
+                                                        } else
+                                                        {
+                                                            <h6 id="productDescription">@cart.ProductModel.Name</h6>
+                                                        }
+                                                    </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="select-total">
+                                <span>Total:</span>
+                                <h5>@(new FormatHandle().FormatNumber(Model.TotalPrice)) đ</h5>
+                            </div>
+                            <div class="select-button rounded">
+                                <a href="~/User/Cart" class="primary-btn checkout-btn rounded">View Cart</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="cart-price">@(new FormatHandle().FormatNumber(Model.TotalPrice)) đ</li>
+                }
+        </ul>
+    </div>
+} else
+{
+    <div></div>
+}
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            var maxLength = 15; // Số ký tự tối đa bạn muốn hiển thị
+            var productDescriptions = document.querySelectorAll("#productDescription");
+            });
+
+            productDescriptionsRow.forEach(function (productDescriptionRow) {
+                if (productDescriptionRow.innerText.length > maxLengthRow) {
+                    productDescriptionRow.innerText = productDescriptionRow.innerText.substring(0, maxLengthRow) + "...";
+                }
+            });
+        });
+    </script>
+}

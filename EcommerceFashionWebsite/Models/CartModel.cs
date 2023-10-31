@@ -16,6 +16,7 @@ namespace EcommerceFashionWebsite.Models
 
         public int Quantity { get; set; }
 
+        [ForeignKey("UserModel")]
         public string ApplicationUserId { get; set; }
 
         [ValidateNever]

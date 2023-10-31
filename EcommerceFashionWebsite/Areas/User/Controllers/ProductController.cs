@@ -90,21 +90,38 @@ namespace EcommerceFashionWebsite.Areas.User.Controllers
         [Authorize]
         public IActionResult Detail(ProductViewModel productViewModel)
         {
+            // đầu tiên phải kiểm tra liệu rằng sản phẩm đó đã tồn tại trong giỏ hàng r hay chưa và liệu rằng giỏ hàng của người đó hay kh
+            // nếu chưa thì phải tạo mới 
             var identity = (ClaimsIdentity)User.Identity;
             var claim = identity.FindFirst(ClaimTypes.NameIdentifier);
 
-            CartModel cartModel = new CartModel()
-            {
-                ProductId = productViewModel.ProductId,
-                Quantity = productViewModel.Quantity,
-                ApplicationUserId = claim.Value
-            };
+            CartModel checkCart = _db.CartModel.Where(c => c.ProductId == productViewModel.ProductId && c.ApplicationUserId == claim.Value).FirstOrDefault();
 
-            //Them san pham vao gio hang
-            _db.CartModel.Add(cartModel);
+            if (checkCart != null)
+            {
+                checkCart.Quantity += productViewModel.Quantity;
+                // nếu rồi thì phải thì update lại với quantity
+                _db.CartModel.Update(checkCart);
+            } else
+            {
+                CartModel cartModel = new CartModel()
+                {
+                    ProductId = productViewModel.ProductId,
+                    Quantity = productViewModel.Quantity,
+                    ApplicationUserId = claim.Value
+                };
+
+                //Them san pham vao gio hang
+                _db.CartModel.Add(cartModel);
+            }
+
+
             _db.SaveChanges();
 
-            return Json(new { success = true });
+
+            var carts = _db.CartModel.Where(c => c.ApplicationUserId == claim.Value).ToList();
+
+            return Json(new { cartNumber = carts.Count });
 
         }
 
@@ -147,6 +164,39 @@ namespace EcommerceFashionWebsite.Areas.User.Controllers
             return Json(products);
 
             }
+
+        }
+
+        [HttpPost]
+        public IActionResult FemaleProduct()
+        {
+                var products = _db.ProductModel
+                   .Include(p => p.Images)
+                   .Include(p => p.Categories)
+                   .ThenInclude(pc => pc.Category)
+                   .ToList();
+
+                var productViewModels = products.Select(product => new ProductViewModel
+                {
+                    ProductId = product.Id,
+                    ProductName = product.Name,
+
+                    ImageUrls = new List<string>
+                    {
+                        _db.ImageModel
+                         .Where(img => img.ProductId == product.Id)
+                         .Select(img => img.ImageUrl)
+                         .FirstOrDefault()
+                    },
+                    PriceApply = (int)product.PriceApply,
+                    PriceOrigin = (int)product.PriceOrigin,
+                    NumberInStock = product.NumberInStock,
+                    StarRating = product.StarRating,
+
+                    // Các thuộc tính khác của ProductViewModel bạn muốn hiển thị
+                }).ToList();
+
+                return Json(productViewModels);
 
         }
     }
