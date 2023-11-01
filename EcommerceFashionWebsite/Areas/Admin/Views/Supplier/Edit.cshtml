@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "Edit Supplier";
+}
+@using EcommerceFashionWebsite.Areas.Admin.ViewModels;
+@model CreateSupplierViewModel;
+
+<div class="content-inner container-fluid pb-0" id="page_layout">
+    <div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Edit Supplier</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="new-user-info">
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="CompanyName" class="form-label">Company Name:</label>
+                                        <input asp-for="CompanyName" class="form-control" aria-required="true" placeholder="Company Name..." />
+                                        <span asp-validation-for="CompanyName" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="group-input col-md-6">
+                                        <label asp-for="ContactName" class="form-label">Contact Name:</label>
+                                        <input asp-for="ContactName" class="form-control" aria-required="true" placeholder="Contact Name..." />
+                                        <span asp-validation-for="ContactName" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Addresss" class="form-label">Addresss:</label>
+                                        <input asp-for="Addresss" class="form-control" aria-required="true" placeholder="Addresss..." />
+                                        <span asp-validation-for="Addresss" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Email" class="form-label">Email:</label>
+                                        <input asp-for="Email" class="form-control" aria-required="true" placeholder="Email..." />
+                                        <span asp-validation-for="Email" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Phone" class="form-label">Phone:</label>
+                                        <input asp-for="Phone" class="form-control" aria-required="true" placeholder="Phone..." />
+                                        <span asp-validation-for="Phone" class="text-danger mt-1"></span>
+                                    </div>
+
+
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Country" class="form-label">Country:</label>
+                                        <input asp-for="Country" class="form-control" aria-required="true" placeholder="Country..." />
+                                        <span asp-validation-for="Country" class="text-danger mt-1"></span>
+                                    </div>
+
+
+
+                                    <div class="group-input col-md-6">
+                                        <label asp-for="HomePage" class="form-label">HomePage:</label>
+                                        <input asp-for="HomePage" class="form-control" aria-required="true" placeholder="HomePage..." />
+                                        <span asp-validation-for="HomePage" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @if (string.IsNullOrEmpty(Model.ImageURL))
+                                        {
+                                            <label asp-for="Image" class="form-label">Image:</label>
+                                            <div id="imagePreview"></div>
+                                            <input asp-for="Image" type="file" class="form-control" placeholder="Image..." id="imageInput" />
+                                            <span asp-validation-for="Image" class="text-danger mt-1"></span>
+                                        }
+                                        else
+                                        {
+                                            <div class="d-flex flex-column">
+                                                <label asp-for="Image" class="form-label">Image:</label>
+                                                <div id="imagePreview"></div>
+                                                <img width="135" height="135" class="rounded avatar-65 my-2 object-cover" src="@Model.ImageURL" alt="" loading="lazy" id="image-url"/>
+                                                <span asp-validation-for="Image" class="text-danger mt-1"></span>
+                                                <input asp-for="ImageURL" type="hidden" />
+                                                <input asp-for="Image" type="file" class="form-control" placeholder="Image..." id="imageInput"/>
+                                            </div>
+                                        }
+                                    </div>
+
+
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3">Edit</button>
+                            </form>
+                        </div>
+                        <script>
+                            // Lắng nghe sự kiện khi người dùng chọn hình ảnh
+                            document.getElementById('imageInput').addEventListener('change', function (event) {
+                                var input = event.target;
+                                var imagePreview = document.getElementById('imagePreview');
+                                if (imagePreview.innerHTML !== '')
+                                    imagePreview.innerHTML = '';
+
+                                // Kiểm tra xem người dùng đã chọn hình ảnh chưa
+                                if (input.files && input.files[0]) {
+                                    var reader = new FileReader();
+
+                                    // Đọc hình ảnh thành dạng URL dựa trên File API
+                                    reader.onload = function (e) {
+                                        // Hiển thị hình ảnh trước khi tải lên
+                                        imagePreview.innerHTML = '<img src="' + e.target.result + '" class="img-preview rounded my-2" width="135" height="135" />';
+                                    };
+
+                                    // Đọc hình ảnh như một URL dựa trên File API
+                                    reader.readAsDataURL(input.files[0]);
+
+
+                                    $("#image-url").remove();
+                                } else {
+                                    // Nếu không có hình ảnh được chọn, xóa hình ảnh xem trước
+                                    imagePreview.innerHTML = '';
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                                        

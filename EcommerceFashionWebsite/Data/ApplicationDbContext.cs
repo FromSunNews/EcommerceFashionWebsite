@@ -33,8 +33,8 @@ namespace EcommerceFashionWebsite.Data
         public DbSet<ProductInfoModel> ProductInfoModel { get; set; }
 
         public DbSet<InvoiceModel> InvoiceModel { get; set; }
-        public DbSet<InvoiceDetailModel> InvoiceDetailModel { get; set; }
-        public DbSet<AdditionalServiceModel> AdditionalServiceModel { get; set; }
+        public DbSet<InvoiceSliceModel> InvoiceSliceModel { get; set; }
+        public DbSet<SupplierModel> SupplierModel { get; set; }
 
 
 

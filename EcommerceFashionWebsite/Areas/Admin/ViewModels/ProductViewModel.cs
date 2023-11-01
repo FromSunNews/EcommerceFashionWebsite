@@ -22,6 +22,9 @@ namespace EcommerceFashionWebsite.Areas.Admin.ViewModels
         public string Desc{ get; set; }
 
         public ICollection<ProductViewModel>? RelatedProducts { get; set; }
+
+        public int? SupplierId { get; set; }
+        public SupplierModel? SupplierModel { get; set; }
         public int StarRating { get; set; }
         public int Quantity { get; set; } = 1;
 

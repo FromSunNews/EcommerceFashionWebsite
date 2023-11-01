@@ -1,0 +1,81 @@
+﻿@{
+    ViewData["Title"] = "Add Supplier";
+}
+@using EcommerceFashionWebsite.Areas.Admin.ViewModels;
+@model CreateSupplierViewModel;
+<div class="content-inner container-fluid pb-0" id="page_layout">
+    <div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Add Supplier</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="new-user-info">
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="CompanyName" class="form-label">Company Name:</label>
+                                        <input asp-for="CompanyName" class="form-control" aria-required="true" placeholder="Company Name..." />
+                                        <span asp-validation-for="CompanyName" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="group-input col-md-6">
+                                        <label asp-for="ContactName" class="form-label">Contact Name:</label>
+                                        <input asp-for="ContactName" class="form-control" aria-required="true" placeholder="Contact Name..." />
+                                        <span asp-validation-for="ContactName" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Addresss" class="form-label">Addresss:</label>
+                                        <input asp-for="Addresss" class="form-control" aria-required="true" placeholder="Addresss..." />
+                                        <span asp-validation-for="Addresss" class="text-danger mt-1"></span>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Email" class="form-label">Email:</label>
+                                        <input asp-for="Email" class="form-control" aria-required="true" placeholder="Email..." />
+                                        <span asp-validation-for="Email" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Phone" class="form-label">Phone:</label>
+                                        <input asp-for="Phone" class="form-control" aria-required="true" placeholder="Phone..." />
+                                        <span asp-validation-for="Phone" class="text-danger mt-1"></span>
+                                    </div>
+
+
+                                    <div class="form-group col-md-6">
+                                        <label asp-for="Country" class="form-label">Country:</label>
+                                        <input asp-for="Country" class="form-control" aria-required="true" placeholder="Country..." />
+                                        <span asp-validation-for="Country" class="text-danger mt-1"></span>
+                                    </div>
+
+
+
+                                    <div class="group-input col-md-6">
+                                        <label asp-for="HomePage" class="form-label">HomePage:</label>
+                                        <input asp-for="HomePage" class="form-control" aria-required="true" placeholder="HomePage..." />
+                                        <span asp-validation-for="HomePage" class="text-danger mt-1"></span>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label asp-for="Image" class="form-label">Image:</label>
+                                        <input asp-for="Image" type="file" class="form-control" placeholder="Image..." />
+                                        <span asp-validation-for="Image" class="text-danger mt-1"></span>
+                                    </div>
+
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-3">Add</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

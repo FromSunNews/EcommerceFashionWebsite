@@ -1,0 +1,108 @@
+﻿@model List<InvoiceModel>
+@using EcommerceFashionWebsite.Extensions;
+@{
+    ViewData["Title"] = "Invoices";
+}
+
+<div class="container-fluid content-inner pb-0" id="page_layout">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header d-flex flex-row justify-content-between align-items-center">
+                    <h4 class="card-title">Invoices</h4>
+                </div>
+                <div class="card-body px-0">
+                    <div class="simple-table table-responsive">
+                        <table class="table table-striped mb-0 table-hover" id="datatable" data-toggle="data-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Invoice ID</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Customer</th>
+                                    <th scope="col">Delivery Address</th>
+                                    <th scope="col">Phone</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Deliver Method</th>
+                                    <th scope="col">Order Date</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var invoice in Model)
+                                {
+                                        <tr class="invoice-detail" style="cursor: pointer;">
+                                            <td class="text-dark">@invoice.Id</td>
+                                            <td class="text-dark">@invoice.OrderStatus</td>
+                                            <td class="text-dark">@invoice.Name</td>
+                                            <td class="text-dark">@invoice.Address</td>
+                                            <td class="text-dark">@invoice.PhoneNumber</td>
+                                            <td class="text-dark">@invoice.Email</td>
+                                            <td class="text-dark">@(new FormatHandle().FormatNumber((int)((invoice.Total + (invoice.DeliveryMethod == DeliveryMethodType.Standard ? 0 : 15000)) * 0.7))) đ</td>
+                                            <td class="text-dark text-wrap">@invoice.DeliveryMethod</td>
+                                            <td class="text-dark">@(new FormatHandle().ConvertDateTimeToDDMMYYYY(invoice.OrderDate))</td>
+                                        <td>
+                                            <div class="d-flex justify-content-end gap-1">
+                                                <a class="btn btn-primary btn-icon btn-sm rounded-pill" role="button" asp-action="Detail" asp-route-id="@invoice.Id">
+                                                    <span class="btn-inner">
+                                                        <svg fill="none" xmlns="http://www.w3.org/2000/svg" class="icon-32" width="32" height="32" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.81 2H16.191C19.28 2 21 3.78 21 6.83V17.16C21 20.26 19.28 22 16.191 22H7.81C4.77 22 3 20.26 3 17.16V6.83C3 3.78 4.77 2 7.81 2ZM8.08 6.66V6.65H11.069C11.5 6.65 11.85 7 11.85 7.429C11.85 7.87 11.5 8.22 11.069 8.22H8.08C7.649 8.22 7.3 7.87 7.3 7.44C7.3 7.01 7.649 6.66 8.08 6.66ZM8.08 12.74H15.92C16.35 12.74 16.7 12.39 16.7 11.96C16.7 11.53 16.35 11.179 15.92 11.179H8.08C7.649 11.179 7.3 11.53 7.3 11.96C7.3 12.39 7.649 12.74 8.08 12.74ZM8.08 17.31H15.92C16.319 17.27 16.62 16.929 16.62 16.53C16.62 16.12 16.319 15.78 15.92 15.74H8.08C7.78 15.71 7.49 15.85 7.33 16.11C7.17 16.36 7.17 16.69 7.33 16.95C7.49 17.2 7.78 17.35 8.08 17.31Z" fill="currentColor"></path></svg>
+                                                    </span>
+                                                </a>
+                                                <a class="btn btn-primary btn-icon btn-sm rounded-pill" role="button" asp-action="Edit" asp-route-id="@invoice.Id">
+                                                    <span class="btn-inner">
+                                                        <svg class="icon-32" width="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path opacity="0.4" d="M19.9927 18.9534H14.2984C13.7429 18.9534 13.291 19.4124 13.291 19.9767C13.291 20.5422 13.7429 21.0001 14.2984 21.0001H19.9927C20.5483 21.0001 21.0001 20.5422 21.0001 19.9767C21.0001 19.4124 20.5483 18.9534 19.9927 18.9534Z" fill="currentColor"></path>
+                                                            <path d="M10.309 6.90385L15.7049 11.2639C15.835 11.3682 15.8573 11.5596 15.7557 11.6929L9.35874 20.0282C8.95662 20.5431 8.36402 20.8344 7.72908 20.8452L4.23696 20.8882C4.05071 20.8903 3.88775 20.7613 3.84542 20.5764L3.05175 17.1258C2.91419 16.4915 3.05175 15.8358 3.45388 15.3306L9.88256 6.95545C9.98627 6.82108 10.1778 6.79743 10.309 6.90385Z" fill="currentColor"></path>
+                                                            <path opacity="0.4" d="M18.1208 8.66544L17.0806 9.96401C16.9758 10.0962 16.7874 10.1177 16.6573 10.0124C15.3927 8.98901 12.1545 6.36285 11.2561 5.63509C11.1249 5.52759 11.1069 5.33625 11.2127 5.20295L12.2159 3.95706C13.126 2.78534 14.7133 2.67784 15.9938 3.69906L17.4647 4.87078C18.0679 5.34377 18.47 5.96726 18.6076 6.62299C18.7663 7.3443 18.597 8.0527 18.1208 8.66544Z" fill="currentColor"></path>
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </td>
+                                        </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="modal-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal-1">Xác Nhận Xóa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure want to delete this invoice?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" id="confirmDeleteBtn">Accept</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            // Lắng nghe sự kiện khi nút xác nhận xóa trong modal được click
+            $('.invoice-detail').click(function () {
+                // Lấy ID của danh mục muốn xóa từ thuộc tính data của nút xác nhận xóa
+                var InvoiceId = $(this).data('invoice-id');
+                console.log("invoiceId", InvoiceId);
+                // Gửi yêu cầu xóa đến controller
+                $.ajax({
+                    url: '/Admin/Invoice/Detail?InvoiceId=' + InvoiceId,
+                    method: 'POST'
+                });
+            });
+        });
+    </script>
+}

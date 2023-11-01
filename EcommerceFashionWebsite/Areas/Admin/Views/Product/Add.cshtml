@@ -41,22 +41,30 @@
                                         <span asp-validation-for="Introduction" class="text-danger mt-1"></span>
                                     </div>
 
-                                    <div class="form-group">
+                                    <div class="form-group col-md-6">
                                         <label asp-for="Features" class="form-label">Features:</label>
                                         <textarea asp-for="Features" rows="3" class="form-control" placeholder="Features..."></textarea>
                                         <span asp-validation-for="Features" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                            <label asp-for="SupplierId" class="control-label mb-1">Suppliers:</label>
+                                            <select asp-for="SupplierId" asp-items="Model.SupplierSelectedList" class="form-control">
+                                                <option disabled selected>Select Suppliers</option>
+                                            </select>
+                                            <span asp-validation-for="SupplierId" class="text-danger"></span>
                                     </div>
 
                                     <div class="group-input col-md-6">
                                         <label asp-for="Sizes" class="form-label">Size:</label>
                                         <select asp-for="Sizes" class="form-control">
                                             <option value="">Select size</option>
-                                            <option value="Small">@Sizes.S</option>
-                                            <option value="Medium">@Sizes.M</option>
-                                            <option value="Large">@Sizes.L</option>
-                                            <option value="Extra Large">@Sizes.XL</option>
-                                            <option value="2 Extra Large">@Sizes.XXL</option>
-                                            <option value="3 Extra Large">@Sizes.XXXL</option>
+                                            <option value="@Sizes.S">Small</option>
+                                            <option value="@Sizes.M">Medium</option>
+                                            <option value="@Sizes.L">Large</option>
+                                            <option value="@Sizes.XL">Extra Large</option>
+                                            <option value="@Sizes.XXL">2 Extra Large</option>
+                                            <option value="@Sizes.XXXL">3 Extra Large</option>
                                         </select>
                                         <span asp-validation-for="Sizes" class="text-danger"></span>
                                     </div>
@@ -75,7 +83,7 @@
                                         <span asp-validation-for="Tags" class="text-danger mt-1"></span>
                                     </div>
 
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group">
                                         <label class="form-label" asp-for="NumberInStock">NumberInStock</label>
                                         <input type="number" class="form-control" asp-for="NumberInStock" value="0">
                                         <span asp-validation-for="NumberInStock" class="text-danger mt-1"></span>

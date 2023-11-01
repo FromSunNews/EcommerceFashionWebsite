@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EcommerceFashionWebsite.Models
 {
-    public class InvoiceDetailModel
+    public class InvoiceSliceModel
     {
         [Key]
         public int Id { get; set; }

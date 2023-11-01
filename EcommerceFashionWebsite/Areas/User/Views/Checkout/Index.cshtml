@@ -1,0 +1,176 @@
+﻿@{
+    ViewData["Title"] = "Checkout";
+}
+
+@using EcommerceFashionWebsite.ViewComponentsModel;
+@using EcommerceFashionWebsite.Extensions;
+@model CartWishListModel
+
+<form method="post">
+    <div class="container-fluid content-inner pb-0" id="page_layout">
+        <div class="row">
+            <ul class="text-center iq-product-tracker mb-0 py-4" id="progressbar">
+                <li class="iq-tracker-position-0" id="iq-tracker-position-1">Cart</li>
+                <li class="iq-tracker-position-0 active" id="iq-tracker-position-2">Checkout</li>
+                <li class="iq-tracker-position-0" id="iq-tracker-position-3">Payment</li>
+            </ul>
+            <div id="checkoutbtn" class="iq-product-tracker-card show b-0">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="mb-0">Delivery Method</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check d-flex align-items-center gap-3">
+                                                <input class="form-check-input" id="StandardD" type="radio" asp-for="@Model.DeliveryMethod" value="@DeliveryMethodType.Standard">
+                                                <label class="form-check-label d-flex flex-column" for="StandardD">
+                                                    <span class="h6">Standard Delivery</span>
+                                                    <span>2-3 days delivery</span>
+                                                </label>
+                                            </div>
+                                            <h6 class="text-primary mb-0">FREE</h6>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-4">
+                                            <div class="form-check d-flex align-items-center gap-3">
+                                                <input class="form-check-input" id="ExpressD" type="radio" asp-for="@Model.DeliveryMethod" value="@DeliveryMethodType.Express">
+                                                <label class="form-check-label d-flex flex-column" for="ExpressD">
+                                                    <span class="h6">Express Delivery</span>
+                                                    <span>1 day fast delivery</span>
+                                                </label>
+                                            </div>
+                                            <h6 class="text-primary mb-0">10.000đ</h6>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="mb-0">Additional Services</h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" id="productCare" type="checkbox" name="delivery002">
+                                                <label class="form-check-label" for="productCare">
+                                                    <span class="h6">Handle With Care</span>
+                                                    <span>Protection provided</span>
+                                                </label>
+                                            </div>
+                                            <h6 class="text-primary mb-0">5.000đ</h6>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center mt-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" id="productGift" type="checkbox" name="delivery002">
+                                                <label class="form-check-label" for="productGift">
+                                                    <span class="h6">Gift Wrap</span>
+                                                    <span>Gift wrap your product</span>
+                                                </label>
+                                            </div>
+                                            <h6 class="text-primary mb-0">15.000đ</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="mb-0">Address</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label asp-for="UserModel.Name" class="form-label">Name:</label>
+                                        <input asp-for="UserModel.Name" class="form-control" aria-required="true" placeholder="Name..." />
+                                        <span asp-validation-for="UserModel.Name" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label asp-for="UserModel.Email" class="form-label">Email:</label>
+                                        <input asp-for="UserModel.Email" class="form-control" aria-required="true" placeholder="Email..." />
+                                        <span asp-validation-for="UserModel.Email" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label asp-for="UserModel.Phone" class="form-label">Phone:</label>
+                                        <input asp-for="UserModel.Phone" class="form-control" aria-required="true" placeholder="Phone..." />
+                                        <span asp-validation-for="UserModel.Phone" class="text-danger mt-1"></span>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label asp-for="UserModel.Address" class="form-label">Address:</label>
+                                        <textarea asp-for="UserModel.Address" rows="3" class="form-control" placeholder="Address..."></textarea>
+                                        <span asp-validation-for="UserModel.Address" class="text-danger mt-1"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="mb-0">Order Summary</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="border-bottom">
+                                    @* <div class="input-group mb-3">
+                                    <input type="text" class="form-control" placeholder="Coupon Code" aria-label="Coupon Code" aria-describedby="CouponCode">
+                                    <button class="btn btn-primary" type="button" id="CouponCode">Apply</button>
+                                    </div> *@
+                                </div>
+                                <div class="border-bottom mt-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h6>Subtotal</h6>
+                                        <h6 class="text-primary">@(new FormatHandle().FormatNumber(Model.TotalPrice)) đ</h6>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h6>Discount(30%)</h6>
+                                        <h6 class="text-success">-@(new FormatHandle().FormatNumber((int)(Model.TotalPrice * 0.3))) đ</h6>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h6>Shipping</h6>
+                                        <h6 class="text-success">FREE</h6>
+                                    </div>
+                                </div>
+                                <div class="mt-4">
+                                    <div class="d-flex justify-content-between mb-4">
+                                        <h6 class="mb-0">Order Total</h6>
+                                        <h5 class="text-primary mb-0"></h5>
+                                    </div>
+                                    <div class="alert border-primary rounded border border-1 mb-4">
+                                        <div class="d-flex justify-content-between align-items-center ">
+                                            <h6 class="text-primary mb-0">Total </h6>
+                                            <h6 class="text-primary mb-0"><b>@(new FormatHandle().FormatNumber((int)(Model.TotalPrice * 0.7))) đ</b></h6>
+                                        </div>
+                                    </div>
+                                    <div class="alert border-primary rounded border border-1 mb-4">
+                                        <div class="d-flex justify-content-between align-items-center ">
+                                            <h6 class="text-primary mb-0">Expected date of delivery</h6>
+                                            <h6 class="text-primary mb-0">@((DateTime.Now).AddDays(7).ToString("dd/MM/yyyy"))</h6>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <button action="submit" class="btn btn-primary d-block mt-3 w-100">Checkout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+
+        });
+    </script>
+}

@@ -21,10 +21,10 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var products = _db.ProductModel
-        .Include(p => p.Images)
-        .Include(p => p.Categories)
-        .ThenInclude(pc => pc.Category)
-        .ToList();
+            .Include(p => p.Images)
+            .Include(p => p.Categories)
+            .ThenInclude(pc => pc.Category)
+            .ToList();
 
             var productViewModels = products.Select(product => new ProductViewModel
             {
@@ -44,7 +44,9 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
                 Introduction = product.Introduction,
                 Features = product.Features,
                 Colors = product.Colors,
-                Desc = product.Desc
+                Desc = product.Desc,
+                SupplierModel = _db.SupplierModel.Where(s => s.Id == product.SupplierId).SingleOrDefault(),
+                SupplierId = product.SupplierId
                 // Các thuộc tính khác của ProductViewModel bạn muốn hiển thị
             }).ToList();
 
@@ -54,15 +56,24 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
         public IActionResult Add()
         {
             var categories = _db.CategoryModel.ToList();
+            var suppliers = _db.SupplierModel.ToList();
+
             var productVM = new CreateProductViewModel
             {
                 CategoriesSelectList = categories
-            .Select(category => new SelectListItem
-            {
-                Text = category.Name, // Thay "Name" bằng thuộc tính trong CategoryModel bạn muốn hiển thị
-                Value = category.Id.ToString() // Thay "Id" bằng thuộc tính ID trong CategoryModel
-            })
-            .ToList()
+                .Select(category => new SelectListItem
+                {
+                    Text = category.Name, // Thay "Name" bằng thuộc tính trong CategoryModel bạn muốn hiển thị
+                    Value = category.Id.ToString() // Thay "Id" bằng thuộc tính ID trong CategoryModel
+                })
+                .ToList(),
+                SupplierSelectedList = suppliers
+                .Select(s => new SelectListItem
+                {
+                    Text = s.CompanyName, // Thay "Name" bằng thuộc tính trong CategoryModel bạn muốn hiển thị
+                    Value = s.Id.ToString() // Thay "Id" bằng thuộc tính ID trong CategoryModel
+                })
+                .ToList(),
             };
             return View(productVM);
         }
@@ -70,7 +81,7 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> AddAsync(CreateProductViewModel productVM)
         {
-            
+             SupplierModel supplierModel = _db.SupplierModel.Where(s => s.Id == productVM.SupplierId).SingleOrDefault();
                 var productModel = new ProductModel
                 {
                     Name = productVM.Name,
@@ -82,7 +93,8 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
                     NumberInStock = productVM.NumberInStock,
                     PriceApply = (float)productVM.PriceApply,
                     PriceOrigin = (float)productVM.PriceOrigin,
-                    Features = productVM.Features
+                    Features = productVM.Features,
+                    SupplierId = supplierModel.Id
                 };
                 _db.ProductModel.Add(productModel);
                 await _db.SaveChangesAsync(); // Lưu thay đổi vào cơ sở dữ liệu
@@ -144,6 +156,7 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
             var productModel = _db.ProductModel.Find(id);
 
             var categories = _db.CategoryModel.ToList();
+            var suppliers = _db.SupplierModel.ToList();
             var productVM = new CreateProductViewModel
             {
                 Id = productModel.Id,
@@ -152,6 +165,14 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
                 {
                     Text = category.Name, // Thay "Name" bằng thuộc tính trong CategoryModel bạn muốn hiển thị
                     Value = category.Id.ToString() // Thay "Id" bằng thuộc tính ID trong CategoryModel
+                })
+                .ToList(),
+                SupplierId = productModel.SupplierModel.Id,
+                SupplierSelectedList = suppliers
+                .Select(s => new SelectListItem
+                {
+                    Text = s.CompanyName, // Thay "Name" bằng thuộc tính trong CategoryModel bạn muốn hiển thị
+                    Value = s.Id.ToString() // Thay "Id" bằng thuộc tính ID trong CategoryModel
                 })
                 .ToList(),
                 SelectedCategories = _db.ProductCategoryModel
@@ -180,7 +201,7 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> EditAsync(CreateProductViewModel productVM)
         {
-
+            SupplierModel supplierModel = _db.SupplierModel.Where(s => s.Id == productVM.SupplierId).SingleOrDefault();
             var productModel = new ProductModel
             {
                 Id = productVM.Id,
@@ -193,7 +214,9 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
                 NumberInStock = productVM.NumberInStock,
                 PriceApply = (float)productVM.PriceApply,
                 PriceOrigin = (float)productVM.PriceOrigin,
-                Features = productVM.Features
+                Features = productVM.Features,
+                SupplierModel = supplierModel,
+                SupplierId = supplierModel.Id
             };
             _db.ProductModel.Update(productModel);
             await _db.SaveChangesAsync(); // Lưu thay đổi vào cơ sở dữ liệu
@@ -240,35 +263,11 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
             }
 
 
-            //// Tìm ProductModel để xóa
-            //var product = _db.ProductModel
-            //    .Include(p => p.Images)
-            //    .Include(p => p.Categories)
-            //    .SingleOrDefault(p => p.Id == newProductId);
-
-            //_db.ProductCategoryModel.RemoveRange(product.Categories);
-
-            //// xóa categỏy xong tạo lại
-
-            //var productCategoryModels = productVM.SelectedCategories.Select(id =>
-            //{
-            //    var productCategoryModel = new ProductCategoryModel
-            //    {
-            //        ProductId = newProductId,
-            //        CategoryId = Int32.Parse(id)
-            //    };
-
-            //    return productCategoryModel;
-            //});
-
-            //_db.ProductCategoryModel.AddRange(productCategoryModels);
-
-
             // Lấy danh sách các thể loại hiện tại của sản phẩm từ cơ sở dữ liệu
             var currentCategories = _db.ProductCategoryModel
-    .Where(pc => pc.ProductId == productVM.Id)
-    .Select(pc => pc.CategoryId)
-    .ToList();
+            .Where(pc => pc.ProductId == productVM.Id)
+            .Select(pc => pc.CategoryId)
+            .ToList();
 
             
             // So sánh danh sách thể loại hiện tại với danh sách được chọn mới:
@@ -305,6 +304,8 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
                 .Include(p => p.Categories)
                 .SingleOrDefault(p => p.Id == id);
 
+
+
             if (product == null)
             {
                 return NotFound(); // Trả về NotFound nếu không tìm thấy ProductModel
@@ -319,6 +320,7 @@ namespace EcommerceFashionWebsite.Areas.Admin.Controllers
 
             // Xóa ProductCategoryModels dựa trên ProductId
             _db.ProductCategoryModel.RemoveRange(product.Categories);
+
 
             // Xóa ProductModel
             _db.ProductModel.Remove(product);

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace EcommerceFashionWebsite.Migrations
 {
     /// <inheritdoc />
-    public partial class db : Migration
+    public partial class db1 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,6 +33,7 @@ namespace EcommerceFashionWebsite.Migrations
                     Discriminator = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -89,6 +90,26 @@ namespace EcommerceFashionWebsite.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ProductInfoModel", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SupplierModel",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UrlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    ContactName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Addresss = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    HomePage = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SupplierModel", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -207,10 +228,12 @@ namespace EcommerceFashionWebsite.Migrations
                     Total = table.Column<double>(type: "float", nullable: false),
                     OrderDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     OrderStatus = table.Column<int>(type: "int", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DeliveryMethod = table.Column<int>(type: "int", nullable: false)
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DeliveryMethod = table.Column<int>(type: "int", nullable: false),
+                    Discount = table.Column<double>(type: "float", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -232,6 +255,7 @@ namespace EcommerceFashionWebsite.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsLiked = table.Column<bool>(type: "bit", nullable: false),
                     StarRating = table.Column<int>(type: "int", nullable: false),
+                    SupplierId = table.Column<int>(type: "int", nullable: false),
                     Desc = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     PriceApply = table.Column<float>(type: "real", nullable: false),
                     PriceOrigin = table.Column<float>(type: "real", nullable: false),
@@ -251,27 +275,12 @@ namespace EcommerceFashionWebsite.Migrations
                         column: x => x.ProductInfoId,
                         principalTable: "ProductInfoModel",
                         principalColumn: "Id");
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AdditionalServiceModel",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    InvoiceId = table.Column<int>(type: "int", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Price = table.Column<double>(type: "float", nullable: false),
-                    InvoiceModelId = table.Column<int>(type: "int", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AdditionalServiceModel", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AdditionalServiceModel_InvoiceModel_InvoiceModelId",
-                        column: x => x.InvoiceModelId,
-                        principalTable: "InvoiceModel",
-                        principalColumn: "Id");
+                        name: "FK_ProductModel_SupplierModel_SupplierId",
+                        column: x => x.SupplierId,
+                        principalTable: "SupplierModel",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -322,7 +331,7 @@ namespace EcommerceFashionWebsite.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "InvoiceDetailModel",
+                name: "InvoiceSliceModel",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -333,15 +342,15 @@ namespace EcommerceFashionWebsite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InvoiceDetailModel", x => x.Id);
+                    table.PrimaryKey("PK_InvoiceSliceModel", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_InvoiceDetailModel_InvoiceModel_InvoiceId",
+                        name: "FK_InvoiceSliceModel_InvoiceModel_InvoiceId",
                         column: x => x.InvoiceId,
                         principalTable: "InvoiceModel",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InvoiceDetailModel_ProductModel_ProductId",
+                        name: "FK_InvoiceSliceModel_ProductModel_ProductId",
                         column: x => x.ProductId,
                         principalTable: "ProductModel",
                         principalColumn: "Id",
@@ -398,11 +407,6 @@ namespace EcommerceFashionWebsite.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_AdditionalServiceModel_InvoiceModelId",
-                table: "AdditionalServiceModel",
-                column: "InvoiceModelId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
                 column: "RoleId");
@@ -457,19 +461,19 @@ namespace EcommerceFashionWebsite.Migrations
                 column: "ProductModelId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InvoiceDetailModel_InvoiceId",
-                table: "InvoiceDetailModel",
-                column: "InvoiceId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_InvoiceDetailModel_ProductId",
-                table: "InvoiceDetailModel",
-                column: "ProductId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_InvoiceModel_ApplicationUserId",
                 table: "InvoiceModel",
                 column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InvoiceSliceModel_InvoiceId",
+                table: "InvoiceSliceModel",
+                column: "InvoiceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_InvoiceSliceModel_ProductId",
+                table: "InvoiceSliceModel",
+                column: "ProductId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ProductCategoryModel_CategoryId",
@@ -487,6 +491,11 @@ namespace EcommerceFashionWebsite.Migrations
                 column: "ProductInfoId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ProductModel_SupplierId",
+                table: "ProductModel",
+                column: "SupplierId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ReviewModel_ProductModelId",
                 table: "ReviewModel",
                 column: "ProductModelId");
@@ -495,9 +504,6 @@ namespace EcommerceFashionWebsite.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
-                name: "AdditionalServiceModel");
-
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
 
@@ -520,7 +526,7 @@ namespace EcommerceFashionWebsite.Migrations
                 name: "ImageModel");
 
             migrationBuilder.DropTable(
-                name: "InvoiceDetailModel");
+                name: "InvoiceSliceModel");
 
             migrationBuilder.DropTable(
                 name: "ProductCategoryModel");
@@ -545,6 +551,9 @@ namespace EcommerceFashionWebsite.Migrations
 
             migrationBuilder.DropTable(
                 name: "ProductInfoModel");
+
+            migrationBuilder.DropTable(
+                name: "SupplierModel");
         }
     }
 }

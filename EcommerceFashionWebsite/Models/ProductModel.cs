@@ -15,6 +15,12 @@ namespace EcommerceFashionWebsite.Models
         public int StarRating { get; set; } = 0;
         [ValidateNever]
         public virtual ICollection<ImageModel>? Images { get; set; }
+
+        [ForeignKey("SupplierModel")]
+        public int SupplierId { get; set; }
+
+        [ValidateNever]
+        public SupplierModel SupplierModel { get; set; }
         public string? Desc { get; set; }
         public float PriceApply { get; set; } = 0;
         public float PriceOrigin { get; set; } = 0;

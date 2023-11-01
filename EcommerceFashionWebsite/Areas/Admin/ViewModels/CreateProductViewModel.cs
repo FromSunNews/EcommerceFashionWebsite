@@ -15,8 +15,15 @@ namespace EcommerceFashionWebsite.Areas.Admin.ViewModels
             public ICollection<IFormFile>? Images { get; set; }
             public List<string>? ImageUrls { get; set; }
         public List<string>? SelectedCategories { get; set; }
+
         [ValidateNever]
         public List<SelectListItem>? CategoriesSelectList { get; set; }
+
+        public int SupplierId { get; set; }
+
+        [ValidateNever]
+        public List<SelectListItem>? SupplierSelectedList { get; set; }
+
         public string? Desc { get; set; }
         [Required]
         public int PriceApply { get; set; } = 0;
@@ -31,5 +38,6 @@ namespace EcommerceFashionWebsite.Areas.Admin.ViewModels
             public string? Features { get; set; }
         [Required]
         public string Colors { get; set; } = "#456575";
+
     }
 }

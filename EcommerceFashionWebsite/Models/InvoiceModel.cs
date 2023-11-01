@@ -14,16 +14,16 @@ namespace EcommerceFashionWebsite.Models
         [ValidateNever]
         public UserModel ApplicationUser { get; set; }
 
+        public ICollection<InvoiceSliceModel>? InvoiceSliceModels { get; set; }
         public double Total { get; set; }
-        public DateTime OrderDate { get; set; }
-        public OrderStatusType? OrderStatus { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
+        public DateTime OrderDate { get; set; } = DateTime.Now;
+        public OrderStatusType? OrderStatus { get; set; } = OrderStatusType.Processing;
+        public string? PhoneNumber { get; set; }
+        public string? Email { get; set; }
+        public string? Name { get; set; }
+        public string? Address { get; set; }
         public DeliveryMethodType DeliveryMethod { get; set; }
-
-        [ValidateNever]
-        public ICollection<AdditionalServiceModel> AdditionalServiceModels { get; set; }
+        public double Discount { get; set; } = 0.3;
     }
 
     public enum OrderStatusType
